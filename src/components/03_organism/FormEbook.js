@@ -15,7 +15,7 @@ Ebook Sender
 
 */
 
-const subscribeApi = process.env.MS_API_SUBSCRIBE
+const subscribeApi = process.env.GRIMM_API_SUBSCRIBE
 
 export const FormEbookContainer = styled.div`
     max-width: 100%;    

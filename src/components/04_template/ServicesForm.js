@@ -10,7 +10,7 @@ import { Message } from '../01_atom/Message'
 import { ButtonCTA } from '../01_atom/ButtonCTA'
 
 const recaptchaKey = process.env.RECAPTCHA_KEY
-const contactApi = process.env.MS_API_CONTACT
+const contactApi = process.env.GRIMM_API_CONTACT
 
 export class ServicesForm extends PureComponent {
     constructor(props) {

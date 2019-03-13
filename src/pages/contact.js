@@ -18,7 +18,7 @@ import { ButtonCTA } from '../components/01_atom/ButtonCTA'
 
 const contactOptions = ["Let's Work Together!", 'Saying hi!', 'General Questions', 'Online Lessons', 'Website Suggestions', 'Other']
 const recaptchaKey = process.env.RECAPTCHA_KEY
-const contactApi = process.env.MS_API_CONTACT
+const contactApi = process.env.GRIMM_API_CONTACT
 
 export default class contact extends PureComponent {
     constructor(props) {
