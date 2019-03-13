@@ -1,4 +1,4 @@
-// ALL QUERY COMPONENTS / Pages ARE COMMENTED OUT until further consideration for graphql
+
 // import React from 'react'
 // import Helmet from 'react-helmet'
 // import { Link, graphql } from 'gatsby'
