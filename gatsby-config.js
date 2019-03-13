@@ -19,11 +19,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        output: `/ms-sitemap.xml`,
+        output: `/grimmsitemap.xml`,
         // Exclude specific pages or groups of pages using glob parameters
         // See: https://github.com/isaacs/minimatch
         // The example below will exclude the single `path/to/page` and all routes beginning with `category`
-        exclude: ["/tags/*"],
+        // exclude: ["/tags/*"],
         query: `
         {
           site {
@@ -86,8 +86,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Grimm Forest Music`,
+        short_name: `GFM`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
