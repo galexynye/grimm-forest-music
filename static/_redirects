@@ -1,0 +1,5 @@
+# Redirect domain aliases to primary domain, need to set this up
+# https://midisequencing.com/* https://www.musicsequencing.com/:splat 301!
+# https://www.midisequencing.com/* https://www.musicsequencing.com/:splat 301!
+
+
