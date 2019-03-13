@@ -74,28 +74,15 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Open Sans`,
-          },
-          {
-            family: `Crimson Text`,
-          },
-        ],
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: `UA-100042737-1`,
-      },
-    },
-    `gatsby-plugin-feed`,
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: `UA-100042737-1`,
+    //   },
+    // },
+    // `gatsby-plugin-feed`, //Something with blog
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

@@ -8,12 +8,9 @@ import { Snow } from '../components/01_atom/Snow'
 import Logo from '../assets/GrimmGraphics/grimmTree_White_390x618.png'
 import { GridContainer, ResponsivePhoto, FlexboxOrganism, WidthWrapper } from '../components/00_utilities/Utilities';
 import { ButtonCTA } from '../components/01_atom/ButtonCTA';
-import Screen from '../assets/GrimmStudioPics/BallSide.jpg'
 import grimmWords from '../assets/GrimmGraphics/grimmWords_White_406x145.png'
 import SnowFlake from '../assets/GrimmGraphics/snowflake_100x100.png'
 
-// Sets A Main Container Size
-const containerSize = msTheme.widths.wide
 
 const HomeContainer = styled.div`
   min-height: calc(100vh - ${msTheme.heights.header});

@@ -84,7 +84,7 @@ export class HeroService extends Component {
                     </WidthWrapper>
                 </HeroHomeElementCenter>
                 <ReadMore>
-                    <p class="headerFont">Read More &#8595;</p>
+                    <p className="headerFont">Read More &#8595;</p>
                 </ReadMore>
             </HeroHomeStyle>
         )

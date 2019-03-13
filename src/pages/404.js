@@ -8,8 +8,8 @@ export default class NoFind extends PureComponent {
             <ArticleContainer>
                 <h1>We're LOST!</h1>
                 <p>Hello! You've gone somewhere that no longer exists or never did!</p>
-                <p>Really sorry about that, you can head back to <a href="https://www.musicsequencing.com">Music Sequencing with this link</a>.</p>
-                <p>If there's been a problem or you have a suggestion please let me know by visiting the <a href="https://www.musicsequencing.com/contact">contact page.</a></p>
+                <p>Really sorry about that, you can head back to <a href="https://www.grimmforestmusic.com">Music Sequencing with this link</a>.</p>
+                <p>If there's been a problem or you have a suggestion please let me know by visiting the <a href="https://www.grimmforestmusic.com/contact">contact page.</a></p>
             </ArticleContainer>
         )
     }

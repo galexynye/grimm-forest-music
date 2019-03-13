@@ -128,7 +128,7 @@ class Services extends React.PureComponent {
 
         // Portfolio cards
         const portfolio = servicesPortfolio.map(x =>
-            <PortfolioCard>
+            <PortfolioCard key={x.src}>
                 <FlexboxOrganism justifyContent="space-between" alignItems="flex-start" height="100%" >
                     <ButtonNoStyle onClick={() => this.load(x.src, x.iframe)}>
                         <ResponsivePhoto src={x.img} />
@@ -140,21 +140,19 @@ class Services extends React.PureComponent {
                     {/* Different buttons depending on whether the work is playing state */}
                     {(url != x.src) && <ButtonCTA
                         text={x.watchOrListen}
-                        key={x.src}
+
                         bgColor={msTheme.colors.primary}
                         color="white"
                         _handleClick={() => this.load(x.src, x.iframe)}
                     />}
                     {(url == x.src && playing) && <ButtonCTA
                         text={loaded ? 'Pause' : 'Loading...'}
-                        key={x.src}
                         bgColor={msTheme.colors.primarylight}
                         color="white"
                         _handleClick={this.playPause}
                     />}
                     {(url == x.src && !playing) && <ButtonCTA
                         text='Play'
-                        key={x.src}
                         bgColor={msTheme.colors.primarylight}
                         color="white"
                         _handleClick={this.playPause}
