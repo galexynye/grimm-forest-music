@@ -10,7 +10,7 @@ import Yony from '../../assets/ServicesPortfolio/YonyBW.jpg'
 const HeroHomeStyle = styled.div`
     margin: ${props => props.margin || "0px"};
     background-position: center;
-    height: 100vh;
+    min-height: 100vh;
     background-image:linear-gradient(rgba(100, 100, 100, 0.8), rgba(0, 0, 0, 0.6)), url(${bgImage2});    
     background-size: cover;
     position: relative;
@@ -19,7 +19,7 @@ const HeroHomeStyle = styled.div`
 
 const HeroHomeElementCenter = styled.div`
     position: absolute;
-    left: calc(50% + 100px);
+    left: calc(50% );
     top: 24%;
     color: white;
     transform: translateX(-50%);
@@ -33,7 +33,7 @@ const HeroHomeElementCenter = styled.div`
     }
     /* margin: 0px 15px; */
     ${msTheme.mediaquery().medium}{
-        top: 30%;
+        top: 15%;
         left: 50%;
         h1{
             font-size: 45px;
@@ -64,24 +64,26 @@ export class HeroService extends Component {
         return (
             <HeroHomeStyle margin={this.props.margin}>
                 <HeroHomeElementCenter>
-                    <WidthWrapper width="600px" >
 
 
-                        <h1>Professional Music Services</h1>
+                    <div className="center">
+                        <h1 style={{ minWidth: "94vw" }}>Professional Music Services</h1>
+                        <WidthWrapper widthSmall="250px" >
+                            <p className="hideMedium">Original Music | Producing | Mixing & Mastering </p>
+                            <WidthWrapper width="250px" >
+                                <ButtonCTA text="Work with Grimm" href="#requestBooking" color={msTheme.colors.bgColor} bgColor={msTheme.colors.primary} />
+                            </WidthWrapper>
 
-                        <p className="hideMedium">Original Music | Producing | Mixing & Mastering </p>
-                        <WidthWrapper width="350px" margin="0px">
-                            <ButtonCTA text="Work With Me" href="#requestBooking" color={msTheme.colors.bgColor} bgColor={msTheme.colors.primary} />
+                            <FlexboxOrganism alignItems="center" margin="20px 0px">
+                                <TestimonialPic src={Yony} className="mB20" />
+                                <div>
+                                    <p className="mL20 mB0">"it sounds great dude! wow, f#$%ing killer mix"</p>
+                                    <p className="center headerFont">-Yony</p>
+                                </div>
+                            </FlexboxOrganism>
                         </WidthWrapper>
+                    </div>
 
-                        <FlexboxOrganism justifyContent="flex-start" alignItems="center" margin="20px 0px">
-                            <TestimonialPic src={Yony} />
-                            <div>
-                                <p className="mL20 mB0 headerFont">"it sounds great dude! wow, f#$%ing killer mix"</p>
-                                <p className="center headerFont">-Yony</p>
-                            </div>
-                        </FlexboxOrganism>
-                    </WidthWrapper>
                 </HeroHomeElementCenter>
                 <ReadMore>
                     <p className="headerFont">Read More &#8595;</p>

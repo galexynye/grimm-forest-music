@@ -99,10 +99,11 @@ h3 {
 p {
     color: ${msTheme.colors.text};
 	font-family: ${msTheme.font.bodyFont}, Arial, Helvetica, sans-serif;
+	/* font-family:  Arial, Helvetica, sans-serif; */
 	font-size: 19px;
 	font-weight: 300;
 	line-height: 27px;
-	margin-bottom: 27px;
+	margin-bottom: 27px;    
 }
 
 ol, ul {
@@ -340,7 +341,17 @@ class SiteContainer extends React.Component {
 
                     ]}
                 >
-                    <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie|Ubuntu" rel="stylesheet" />
+                    {/* <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie|Ubuntu" rel="stylesheet" /> */}
+
+                    {/* <link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet" />
+
+                    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" />
+
+                    <link href="https://fonts.googleapis.com/css?family=Khula:300" rel="stylesheet" /> */}
+
+                    <link href="https://fonts.googleapis.com/css?family=Dosis:300|Khula:300" rel="stylesheet" />
+
+
                 </Helmet>
                 <GlobalStyle />
 

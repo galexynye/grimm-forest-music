@@ -19,7 +19,7 @@ export class FormServices extends PureComponent {
                 <InputString _handleChange={_handleInputChange} value={deadline} type="date" label="deadline" labelText="Deadline (if applicable)" ></InputString>
                 {/* <InputString _handleChange={_handleInputChange} value={budget} type="text" label="budget" labelText="Budget" ></InputString> */}
                 <InputTextarea _handleChange={_handleInputChange} value={message} label="message" labelText="Please describe your project*" required={true} />
-                <InputSubmit margin="0px 0px 20px 0px" _handleSubmit={_handleSubmit} value="Request Booking" bgColor={msTheme.colors.primary} color="white" />
+                <InputSubmit margin="0px 0px 20px 0px" _handleSubmit={_handleSubmit} value="Contact" bgColor={msTheme.colors.primary} color="white" />
             </form>
         )
     }

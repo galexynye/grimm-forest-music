@@ -145,7 +145,7 @@ export class ServicesForm extends PureComponent {
         return (
             <GridContainer className="mT60" gTC=" 1fr" gTCL="1fr" gTCM="1fr" id="requestBooking">
                 <div>
-                    <h2 className="colorPrimary mB40">Request a booking</h2>
+                    <h2 className="colorPrimary mB40">Let's Collaborate</h2>
                     {this.state.loading && <Loading text="Sending..." />}
                     {this.state.success && <Message title="Success!" colorHeader={msTheme.colors.primary} message="Thanks for reaching out, a confirmation email should arrive shortly!" />}
                     {this.state.error && Oops}

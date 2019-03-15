@@ -11,14 +11,14 @@ export function ServicesOffered() {
         <div>
             <GridContainer gTC="1fr 1fr" gridGap="140px 80px" gridGapM="40px" gTCM="1fr" margin="30px auto">
                 <GridItem orderM="2" alignSelf="center">
-                    <img src={LogicScreen} style={{ maxWidth: "100%", borderRadius: "40px" }} />
+                    <img src={LogicScreen} style={{ maxWidth: "100%", borderRadius: "5px" }} />
                 </GridItem>
                 <GridItem orderM="1" alignSelf="center">
 
-                    <div className="center" >
+                    <div >
                         <h2>Original Music</h2>
                         <p>Music written and fully produced with your direction and input. Add emotional depth to your project through musical story telling.</p>
-                        <WidthWrapper width="250px" widthSmall="250px">
+                        <WidthWrapper width="250px" widthSmall="250px" margin="0px">
                             <ButtonCTA to="/listen" text="Listen" bgColor={msTheme.colors.primary} />
                         </WidthWrapper>
                     </div>
@@ -28,7 +28,7 @@ export function ServicesOffered() {
                 <GridItem orderM="3" alignSelf="center">
 
 
-                    <div className="center">
+                    <div>
                         <h2>Mixing & Mastering</h2>
                         <p>Music creatively molded for impact anywhere it's played. You'll get back a stereo audio file that translates anywhere from a hi-fi system to a phone speaker.</p>
                     </div>
@@ -36,19 +36,19 @@ export function ServicesOffered() {
                     {/* </FlexboxOrganism> */}
                 </GridItem>
                 <GridItem orderM="4" alignSelf="center">
-                    <img src={Apollo} style={{ maxWidth: "100%", borderRadius: "40px" }} />
+                    <img src={Apollo} style={{ maxWidth: "100%", borderRadius: "5px" }} />
                 </GridItem>
 
 
 
                 <GridItem orderM="6" alignSelf="center">
-                    <img src={Bass} style={{ maxWidth: "100%", borderRadius: "40px" }} />
+                    <img src={Bass} style={{ maxWidth: "100%", borderRadius: "5px" }} />
                 </GridItem>
 
                 <GridItem orderM="5" alignSelf="center">
 
 
-                    <div className="center">
+                    <div>
                         <h2>Producing</h2>
                         <p>Bring your project to life from a concept or demo to a master production. My goal is to take a band or artist's raw vision and make sure it shines through on a recording.</p>
                         <WidthWrapper width="250px" widthSmall="250px">

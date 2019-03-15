@@ -9,10 +9,11 @@ import { msTheme } from '../../styles/Theme'
 //TODO: Add Alt style based on Props
 const StandardLinkStyle = styled.div`
        a{
-           font-size: 25px;
+           /* font-size: 25px; */
             color: ${msTheme.colors.text};
              /* color: #998C00; */
-            font-family: ${msTheme.font.headerFont};     
+            /* font-family: ${msTheme.font.headerFont};  */
+            font-weight: 300;    
             &:hover{
                 text-decoration: none;
                 color: ${msTheme.colors.primary};

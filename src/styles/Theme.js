@@ -1,6 +1,6 @@
 export const msTheme = {
     colors: {
-        bgColor: 'rgb(20,20,20)',
+        bgColor: 'rgb(25,25,25)',
         text: 'white', // '#373737'
         textlight: '#6d6d6d',
         primary: '#41b883', // Green
@@ -55,13 +55,18 @@ export const msTheme = {
 
     },
     font: {
-        bodyFont: 'Crimson Text',
-        bodyFont: 'Ubuntu',
+        // bodyFont: 'Ubuntu',
+        // bodyFont: 'Open Sans',
+        // bodyFont: 'Dosis',
+        bodyFont: 'Khula',
         // bodyFont: 'Courier',
         // bodyFont: "'Karla', serif",
 
         // headerFont: `'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', sans- serif,`
-        headerFont: "'Reenie Beanie', sans-serif"
+        // headerFont: "'Reenie Beanie', sans-serif"
+        // headerFont: 'Open Sans'
+        headerFont: 'Dosis'
+        // bodyFont: 'Khula',
     },
     fontSize: {
         h2: "34px"
@@ -94,7 +99,7 @@ export const msTheme = {
                 paddingSmall: `10px 20px;`,
                 // border: `1px solid ${this.colors.text}`,
                 border: `none`,
-                borderRadius: `20px;`,
+                borderRadius: `3px;`,
                 paddingInput: "10px 10px"
             }
         }
