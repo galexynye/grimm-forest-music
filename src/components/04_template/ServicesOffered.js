@@ -17,7 +17,7 @@ export function ServicesOffered() {
 
                     <div className="center" >
                         <h2>Original Music</h2>
-                        <p>Music written and fully produced with your direction and input. Add a new emotional depth to your project through musical story telling.</p>
+                        <p>Music written and fully produced with your direction and input. Add emotional depth to your project through musical story telling.</p>
                         <WidthWrapper width="250px" widthSmall="250px">
                             <ButtonCTA to="/listen" text="Listen" bgColor={msTheme.colors.primary} />
                         </WidthWrapper>

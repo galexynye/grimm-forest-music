@@ -58,7 +58,7 @@ class Services extends React.PureComponent {
                         </div>
                         <GridItem alignSelf="center">
                             <h3 className="center">Don't like contact forms?</h3>
-                            <p className="center">Email directly booking@saywellmusic.com</p>
+                            <p className="center">Email directly alex@grimmforestmusic.com</p>
 
                             <img src={Frog} style={{ maxWidth: "100%", borderRadius: "40px" }} />
                             <p className="center mT20">Have a great day!</p>

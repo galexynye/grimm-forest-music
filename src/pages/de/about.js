@@ -3,15 +3,15 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 // import Img from 'gatsby-image'
-import SiteContainer from '../components/05_page/Layout/SiteContainer'
-import { ArticleContainer } from "../components/05_page/ArticleContainer";
-import { msTheme } from '../styles/Theme'
-import { PageTitle } from '../components/01_atom/PageTitle'
-import { GridContainer, ResponsivePhoto, WidthWrapper, FlexboxOrganism, GridItem } from '../components/00_utilities/Utilities';
-import Millenia from '../assets/GrimmStudioPics/Millenia.jpg'
-import Saywell from '../assets/SaywellPics/SaywellLookingDown.jpg'
-import Footpedal from '../assets/GrimmStudioPics/FootPedal.jpg'
-import { ButtonCTA } from '../components/01_atom/ButtonCTA';
+import SiteContainer from '../../components/05_page/Layout/SiteContainer'
+import { ArticleContainer } from "../../components/05_page/ArticleContainer";
+import { msTheme } from '../../styles/Theme'
+import { PageTitle } from '../../components/01_atom/PageTitle'
+import { GridContainer, ResponsivePhoto, WidthWrapper, FlexboxOrganism, GridItem } from '../../components/00_utilities/Utilities';
+import Millenia from '../../assets/GrimmStudioPics/Millenia.jpg'
+import Saywell from '../../assets/SaywellPics/SaywellLookingDown.jpg'
+import Footpedal from '../../assets/GrimmStudioPics/FootPedal.jpg'
+import { ButtonCTA } from '../../components/01_atom/ButtonCTA';
 
 
 class About extends React.Component {
@@ -51,7 +51,7 @@ class About extends React.Component {
 
                         <div className="center">
                             <h2>About Saywell</h2>
-                            <p>Alex Nye, artistically known as Saywell, started working in film music in 2012 after graduating from Berklee College of Music. Film Projects include Amazon's Hand of God and 20th Century Fox's Poltergeist. In 2017, he relocated from Los Angeles to Freiburg, Germany, working as an indepedent producer, mixer, and creating music for media.</p>
+                            <p>Alex Nye, artistically known as Saywell, started working in film music in 2012 after graduating from Berklee College of Music. Film Projects include Amazon's Hand of God and 20th Century Fox's Poltergeist. In 2017, he relocated from Los Angeles to Freiburg, Germany, working as an indepedent producer and creating music for media.</p>
                         </div>
 
                         {/* </FlexboxOrganism> */}

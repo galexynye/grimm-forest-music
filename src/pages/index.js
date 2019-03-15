@@ -75,8 +75,7 @@ export default class Home extends React.Component {
                   <ResponsivePhoto src={grimmWords} margin="0px 0px 20px 0px" />
                   {/* <h2 className="mT40">Let's Collaborate</h2> */}
                   <p>Music crafted for emotional impact. Sound sculpted for fidelity across all playback sources.  </p>
-                  <p>"My goal with our collaboration is to make music people want to remember; music that grabs the audience and immerses them into another world."</p>
-                  <p>-Saywell</p>
+                  <p>My goal with our collaboration is to make music people want to remember; music that grabs the audience and immerses them into another world.</p>
                   <WidthWrapper width="250px" widthSmall="250px">
                     <ButtonCTA to="/listen" text="Listen" color={msTheme.colors.bgColor} bgColor={msTheme.colors.primary} />
                   </WidthWrapper>
@@ -90,7 +89,11 @@ export default class Home extends React.Component {
               <FlexboxOrganism>
                 {/* <img src={Logo} style={{ maxHeight: "700px" }} /> */}
                 <img src={Logo} />
-
+                {/* <SiteContext.Consumer>
+                  {(context) => (
+                    <p>{context.state.bob}</p>
+                  )}
+                </SiteContext.Consumer> */}
               </FlexboxOrganism>
 
               {/* <FlexboxOrganism>

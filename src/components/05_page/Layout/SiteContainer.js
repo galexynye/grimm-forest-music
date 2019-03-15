@@ -17,6 +17,18 @@ const SiteContainerStyle = styled.div`
     position: relative;
 `
 
+const Poop = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+`
+const PoopButton = styled.div`
+    position: fixed;
+    top: 0;
+    left: 50%;
+    z-index: 10000000000000000;
+`
+
 const GlobalStyle = createGlobalStyle`
 
 ${reset}
@@ -243,14 +255,44 @@ a {
     font-size: 25px;
 }
 
-
 `
+
+// Context Api Context
+
+const SiteContext = React.createContext();
+
+// Provider component. Global State
+
+class SiteProvider extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            german: false,
+            bob: "Bob is meah"
+        }
+    }
+    render() {
+        return (
+            <SiteContext.Provider value={{
+                state: this.state,
+                toggleGerman: () => this.setState({
+                    german: !this.state.german
+                })
+            }}>
+                {this.props.children}
+            </SiteContext.Provider>
+        )
+    }
+
+}
+
 
 class SiteContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             mobileMenuOpen: false,
+
             windowWidth: 0, // initially set to 0 because 
         }
     }
@@ -266,6 +308,7 @@ class SiteContainer extends React.Component {
             mobileMenuOpen: !this.state.mobileMenuOpen,
         })
     }
+
     _handleWindowSizeChange = () => {
         this.setState({
             windowWidth: window.innerWidth
@@ -279,7 +322,8 @@ class SiteContainer extends React.Component {
     render() {
         const { children, headerPosition } = this.props
         return (
-            <div>
+            // From The SiteContext
+            <SiteProvider>
                 <Helmet
                     meta={[
                         {
@@ -296,21 +340,20 @@ class SiteContainer extends React.Component {
 
                     ]}
                 >
-                    {/* <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" /> */}
-                    {/* <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie" rel="stylesheet" /> */}
-
-                    {/* <link href="https://fonts.googleapis.com/css?family=Lora|Reenie+Beanie" rel="stylesheet" /> */}
-                    {/* <link href="https://fonts.googleapis.com/css?family=Karla|Reenie+Beanie" rel="stylesheet" /> */}
                     <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie|Ubuntu" rel="stylesheet" />
                 </Helmet>
                 <GlobalStyle />
+
+                {/* {!this.state.german && <Poop><p>Poop</p></Poop>}
+                {this.state.german && <Poop><p>Das Poop</p></Poop>}
+                <PoopButton><p onClick={this._toggleGerman}>Toggle Poop</p></PoopButton> */}
                 <SidebarMobileNav mobileMenuOpen={this.state.mobileMenuOpen} toggleMobileMenu={this._toggleMobileMenu} />
                 <MainContainer mobileMenuOpen={this.state.mobileMenuOpen} toggleMobileMenu={this._toggleMobileMenu}>
                     <Header toggleMobileMenu={this._toggleMobileMenu} headerPosition={headerPosition}></Header>
                     {children}
                     <Footer></Footer>
                 </MainContainer>
-            </div>
+            </SiteProvider>
         )
     }
 }

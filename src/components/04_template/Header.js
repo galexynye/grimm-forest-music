@@ -51,7 +51,12 @@ const HomeLinkLogoWrapper = styled.div`
 export class Header extends React.Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+
+        }
     }
+
     render() {
         return (
             <HeaderContainer headerPosition={this.props.headerPosition}>

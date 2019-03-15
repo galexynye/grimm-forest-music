@@ -185,7 +185,7 @@ class Services extends React.PureComponent {
                     </Helmet>
 
 
-                    <PageTitle text="Listen" description="A Sampling of Select Musical Works"></PageTitle>
+                    <PageTitle text="Listen" description="A Sampling of Original Musical Works"></PageTitle>
 
                     {MusicPortfolio}
 

@@ -61,7 +61,8 @@ export default class contact extends PureComponent {
                 name: this.state.name,
                 subject: this.state.subject,
                 message: this.state.message,
-                origin: 'contactForm' // Very important that this matches the Backend API emails object
+                origin: 'contactForm', // Very important that this matches the Backend API emails object
+                recaptcha: this.state.recaptcha
             }).then((response) => {
                 this.setState({
                     success: true,
@@ -80,14 +81,17 @@ export default class contact extends PureComponent {
     }
 
     _recaptchaLoaded = () => {
+        console.log("loaded")
         this.setState({
             recaptchaLoaded: true
         })
     }
 
-    _verifyHuman = () => {
+    _verifyHuman = (response) => {
+        console.log(response)
+        // let captchaCode = response + ""
         this.setState({
-            recaptcha: true
+            recaptcha: response
         })
     }
 
@@ -127,8 +131,8 @@ export default class contact extends PureComponent {
             <Recaptcha
                 sitekey={recaptchaKey}
                 render="explicit"
-                onloadCallback={this._recaptchaLoaded}
                 verifyCallback={this._verifyHuman}
+                onloadCallback={this._recaptchaLoaded}
             />
         </div>
 
@@ -138,7 +142,8 @@ export default class contact extends PureComponent {
                     meta={[{ name: 'description', content: 'Contact Music Sequencing, make suggestions or hire me' }]}
                     title={`Contact | ${siteTitle}`}
                 >
-                    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+                    {/* <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script> */}
+                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                 </Helmet>
                 <PageTitle text="Contact" description="Say hi" />
                 <ArticleContainer margin="-20px auto 30px auto">
