@@ -64,7 +64,7 @@ export default class Home extends React.Component {
                             {/* <img src={grimmWords} /> */}
                             <p>{pageData.p1}</p>
                             <p>{pageData.p2}</p>
-                            <WidthWrapper width="250px" widthSmall="250px" margin="0px">
+                            <WidthWrapper width="250px" margin="0px">
                                 <ButtonCTA to={pageData.to} text="Listen" color={msTheme.colors.bgColor} bgColor={msTheme.colors.primary} />
                             </WidthWrapper>
                         </div>

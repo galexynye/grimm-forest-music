@@ -51,6 +51,13 @@ export const ReadMore = styled.div`
     position: absolute;
     bottom: 0;
     left: 48%;
+    
+    ${msTheme.mediaquery().medium}{
+        left:88%;
+        p{
+            margin: 0px;
+        }
+    }
 `
 
 export const TestimonialPic = styled.img`
@@ -61,24 +68,25 @@ export const TestimonialPic = styled.img`
 
 export class HeroService extends Component {
     render() {
+        const { pageData: { heroServices } } = this.props
         return (
             <HeroHomeStyle margin={this.props.margin}>
                 <HeroHomeElementCenter>
 
 
                     <div className="center">
-                        <h1 style={{ minWidth: "94vw" }}>Professional Music Services</h1>
+                        <h1 style={{ minWidth: "94vw" }}>{heroServices.title}</h1>
                         <WidthWrapper widthSmall="250px" >
-                            <p className="hideMedium">Original Music | Producing | Mixing & Mastering </p>
+                            <p className="hideMedium">{heroServices.services} </p>
                             <WidthWrapper width="250px" >
-                                <ButtonCTA text="Work with Grimm" href="#requestBooking" color={msTheme.colors.bgColor} bgColor={msTheme.colors.primary} />
+                                <ButtonCTA text={heroServices.buttonText} href="#requestBooking" color={msTheme.colors.bgColor} bgColor={msTheme.colors.primary} />
                             </WidthWrapper>
 
                             <FlexboxOrganism alignItems="center" margin="20px 0px">
                                 <TestimonialPic src={Yony} className="mB20" />
                                 <div>
-                                    <p className="mL20 mB0">"it sounds great dude! wow, f#$%ing killer mix"</p>
-                                    <p className="center headerFont">-Yony</p>
+                                    <p className="mL20 mB0">{heroServices.testimonial}</p>
+                                    <p className="center headerFont">{heroServices.person}</p>
                                 </div>
                             </FlexboxOrganism>
                         </WidthWrapper>

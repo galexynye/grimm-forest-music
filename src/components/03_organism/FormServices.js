@@ -10,15 +10,15 @@ import { InputSubmit } from '../01_atom/InputSubmit'
 export class FormServices extends PureComponent {
 
     render() {
-        const { _handleInputChange, _handleSubmit, email, name, service, budget, servicesOptions, message, deadline } = this.props
+        const { _handleInputChange, _handleSubmit, email, name, service, budget, servicesOptions, message, deadline, doneLabel, deadlineLabel, describeLabel } = this.props
         return (
             <form onSubmit={_handleSubmit}>
                 <InputString _handleChange={_handleInputChange} value={name} type="text" label="name" labelText="Name*" required={true}></InputString>
                 <InputString _handleChange={_handleInputChange} value={email} type="email" label="email" labelText="Email*" required={true}></InputString>
-                <InputSelect _handleChange={_handleInputChange} value={service} options={servicesOptions} label="service" labelText="What needs done?" />
-                <InputString _handleChange={_handleInputChange} value={deadline} type="date" label="deadline" labelText="Deadline (if applicable)" ></InputString>
+                <InputSelect _handleChange={_handleInputChange} value={service} options={servicesOptions} label="service" labelText={doneLabel} />
+                <InputString _handleChange={_handleInputChange} value={deadline} type="date" label="deadline" labelText={deadlineLabel} ></InputString>
                 {/* <InputString _handleChange={_handleInputChange} value={budget} type="text" label="budget" labelText="Budget" ></InputString> */}
-                <InputTextarea _handleChange={_handleInputChange} value={message} label="message" labelText="Please describe your project*" required={true} />
+                <InputTextarea _handleChange={_handleInputChange} value={message} label="message" labelText={describeLabel} required={true} />
                 <InputSubmit margin="0px 0px 20px 0px" _handleSubmit={_handleSubmit} value="Contact" bgColor={msTheme.colors.primary} color="white" />
             </form>
         )

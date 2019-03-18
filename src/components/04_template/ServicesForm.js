@@ -108,7 +108,8 @@ export class ServicesForm extends PureComponent {
     }
 
     render() {
-        const servicesOptions = ['--Select--', 'Custom Music', 'Mixing', 'Mastering', 'Producing', 'Licensing', 'Other']
+        const { pageData: { servicesForm } } = this.props
+        // const servicesOptions = ['--Select--', 'Custom Music', 'Mixing', 'Mastering', 'Producing', 'Licensing', 'Other']
         // Error Message Component
         const Oops =
             <WidthWrapper width="350px" margin="0px">
@@ -125,12 +126,15 @@ export class ServicesForm extends PureComponent {
                     email={this.state.email}
                     name={this.state.name}
                     service={this.state.service}
-                    servicesOptions={servicesOptions}
                     message={this.state.message}
                     deadline={this.state.deadline}
                     budget={this.state.budget}
+                    servicesOptions={servicesForm.servicesOptions}
+                    doneLabel={servicesForm.doneLabel}
+                    describeLabel={servicesForm.describeLabel}
+                    deadlineLabel={servicesForm.deadlineLabel}
                 />
-                {this.state.noRoboConfirm && <p className="headerFont">Please confirm you are not a robot below.</p>}
+                <p className="headerFont">{servicesForm.noRobot}</p>
                 <Recaptcha
                     sitekey={recaptchaKey}
                     render="explicit"
@@ -145,9 +149,9 @@ export class ServicesForm extends PureComponent {
         return (
             <GridContainer className="mT60" gTC=" 1fr" gTCL="1fr" gTCM="1fr" id="requestBooking">
                 <div>
-                    <h2 className="colorPrimary mB40">Let's Collaborate</h2>
+                    <h2 className="colorPrimary mB40">{servicesForm.title}</h2>
                     {this.state.loading && <Loading text="Sending..." />}
-                    {this.state.success && <Message title="Success!" colorHeader={msTheme.colors.primary} message="Thanks for reaching out, a confirmation email should arrive shortly!" />}
+                    {this.state.success && <Message title={servicesForm.success.title} colorHeader={msTheme.colors.primary} message={servicesForm.success.message} />}
                     {this.state.error && Oops}
                     {this.state.form && ServicesForm}
                 </div>

@@ -6,20 +6,20 @@ import LogicScreen from '../../assets/ServicesPortfolio/ForAllIknowOriginalMusic
 import Apollo from '../../assets/GrimmStudioPics/ApolloCool.jpg'
 import Bass from '../../assets/GrimmStudioPics/Bass.jpg'
 
-export function ServicesOffered() {
+export const ServicesOffered = ({ pageData: { servicesOffered: { originalMusic, mixingAndMastering, producing } } }) => {
     return (
         <div>
-            <GridContainer gTC="1fr 1fr" gridGap="140px 80px" gridGapM="40px" gTCM="1fr" margin="30px auto">
+            <GridContainer gTC="1fr 1fr" gridGap="140px 80px" gridGapM="20px" gTCM="1fr" margin="30px auto">
                 <GridItem orderM="2" alignSelf="center">
                     <img src={LogicScreen} style={{ maxWidth: "100%", borderRadius: "5px" }} />
                 </GridItem>
                 <GridItem orderM="1" alignSelf="center">
 
                     <div >
-                        <h2>Original Music</h2>
-                        <p>Music written and fully produced with your direction and input. Add emotional depth to your project through musical story telling.</p>
-                        <WidthWrapper width="250px" widthSmall="250px" margin="0px">
-                            <ButtonCTA to="/listen" text="Listen" bgColor={msTheme.colors.primary} />
+                        <h2>{originalMusic.h2}</h2>
+                        <p>{originalMusic.p}</p>
+                        <WidthWrapper width="250px" margin="0px">
+                            <ButtonCTA to={originalMusic.buttonLink} text={originalMusic.buttonText} bgColor={msTheme.colors.primary} />
                         </WidthWrapper>
                     </div>
 
@@ -29,8 +29,8 @@ export function ServicesOffered() {
 
 
                     <div>
-                        <h2>Mixing & Mastering</h2>
-                        <p>Music creatively molded for impact anywhere it's played. You'll get back a stereo audio file that translates anywhere from a hi-fi system to a phone speaker.</p>
+                        <h2>{mixingAndMastering.h2}</h2>
+                        <p>{mixingAndMastering.p}</p>
                     </div>
 
                     {/* </FlexboxOrganism> */}
@@ -49,11 +49,8 @@ export function ServicesOffered() {
 
 
                     <div>
-                        <h2>Producing</h2>
-                        <p>Bring your project to life from a concept or demo to a master production. My goal is to take a band or artist's raw vision and make sure it shines through on a recording.</p>
-                        <WidthWrapper width="250px" widthSmall="250px">
-                            {/* <ButtonCTA text="Music Services" bgColor={msTheme.colors.primary} /> */}
-                        </WidthWrapper>
+                        <h2>{producing.h2}</h2>
+                        <p>{producing.p}</p>
                     </div>
 
 

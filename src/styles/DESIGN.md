@@ -98,7 +98,16 @@ See the `<SiteContainer>` notes below. All pages are wrapped in the `<SiteContai
 
 ## To create an individual page.
 
-To create a new page component, import the `<SiteContainer>` from the 05_page directory and start putting stuff in it or create a Class or styled componenent inside the `<SiteContainer>` (or both) for more page options. (look at what's there if confused).
+For multiple language capabilities, the pages are constructed from 3 places. 
+1. The .js file inside the pages directory. The place gatsby looks to create pages. In these files are the `<SiteContainer>` any relevant `<Helmet>` data. The guts of the page is from a Page component located in the componenents -> 05_page -> Pages directory. To create pages with multiple languages, there are 2 versions of the page in this folder, with the same page component, but rendering different data.
+2. The page component is the guts of the page, this takes in data and renders the page. To redesign the page then this is the component to work on. 
+3. The data for each page is stored in sitedata -> PageData . A file is named such as contactData.js. There is a named export for each of the pages data. English page data is exported as pageData, German would be exported as pageDataGerman. 
+
+The only differences in creating the two different pages then, is 
+1. the location in the pages directory. english is as the root level of the pages directory, all german pages are in the de directory inside the pages directory.
+2. the data is different. (also the import for the page component / data will be different because it is a directory deeper)
+
+<!-- To create a new page component, import the `<SiteContainer>` from the 05_page directory and start putting stuff in it or create a Class or styled componenent inside the `<SiteContainer>` (or both) for more page options. (look at what's there if confused). -->
 
 **As stated above, Page.js files in the Page directory MUST USE DEFAULT EXPORTS for the page component!!!!!!**
 

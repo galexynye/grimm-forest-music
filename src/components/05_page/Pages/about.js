@@ -24,7 +24,7 @@ class About extends React.Component {
                         <div  >
                             <h2>{aboutData.story.h2}</h2>
                             <p>{aboutData.story.p1}</p>
-                            <WidthWrapper width="250px" widthSmall="250px" margin="0px">
+                            <WidthWrapper width="250px" margin="0px">
                                 <ButtonCTA text={aboutData.story.button.text} to={aboutData.story.button.to} bgColor={msTheme.colors.primary} />
                             </WidthWrapper>
                         </div>
@@ -59,7 +59,7 @@ class About extends React.Component {
                         <div>
                             <h2>{aboutData.offer.h2}</h2>
                             <p>{aboutData.offer.p1}</p>
-                            <WidthWrapper width="250px" widthSmall="250px" margin="0px">
+                            <WidthWrapper width="250px" margin="0px">
                                 <ButtonCTA to={aboutData.offer.button.to} text={aboutData.offer.button.text} bgColor={msTheme.colors.primary} />
                             </WidthWrapper>
                         </div>

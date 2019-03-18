@@ -3,13 +3,9 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import SiteContainer from '../components/05_page/Layout/SiteContainer'
 import IndexPage from '../components/05_page/Pages/index'
+import { pageData } from '../sitedata/PageData/indexData'
 
 
-const pageData = {
-  p1: "Music crafted for emotional impact. Sound sculpted for fidelity across all playback sources.",
-  p2: "My goal with our collaboration is to make music people want to remember; music that grabs the audience and immerses them into another world.",
-  to: "/listen"
-}
 
 export default class Home extends React.Component {
   constructor(props) {
