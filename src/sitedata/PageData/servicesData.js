@@ -58,7 +58,7 @@ export const pageDataGerman = {
             h2: "original Music",
             p: "Musik komponiert und komplett nach deinem Geschmack und Input produziert. Gib deiner Musik emotionale Tiefe durch musikalisches Storytelling.",
             buttonText: "Listen",
-            buttonLink: "/listen"
+            buttonLink: "/de/listen"
         },
         mixingAndMastering: {
             h2: "Mixing & Mastering",
