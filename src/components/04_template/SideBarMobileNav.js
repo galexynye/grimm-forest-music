@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { msTheme } from '../../styles/Theme'
-import { HomeLinkIcon } from '../01_atom/HomeLinkIcon'
+import { HomeLinkLogo } from '../01_atom/HomeLinkLogo'
 import { NavMain } from '../03_organism/NavMain'
 // Include the 
 
@@ -30,7 +30,7 @@ export const SidebarMobileNav = (props) => {
     return (
         <MobileNavContainer mobileMenuOpen={props.mobileMenuOpen}>
             <MobileNavStyle>
-                <HomeLinkIcon height="40px"
+                <HomeLinkLogo height="40px"
                     toggleMobileMenu={props.toggleMobileMenu} //TODO: Doesn't Work need to go programmatically with link
                 />
                 <NavMain

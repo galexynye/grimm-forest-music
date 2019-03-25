@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLinks } from '../02_molecule/NavLinks'
-import { MainNavLinksData } from '../../sitedata/navdata'
+import { MainNavLinksData, MainNavLinksDataGerman } from '../../sitedata/navdata'
 import { msTheme } from '../../styles/Theme'
+import { SiteContext } from '../05_page/Layout/SiteContainer';
 
 // Passes down Main Nav Data 
 // Style for grouping the main nav links
@@ -32,7 +33,15 @@ const NavStyle = styled.nav`
 export const NavMain = (props) => {
     return (
         <NavStyle flow={props.flow} margin={props.linksMargin} marginSmall={props.marginSmall} showSmall={props.showSmall}>
-            <NavLinks altStyleAllowed={true} links={MainNavLinksData} toggleMobileMenu={props.toggleMobileMenu} />
+            <SiteContext.Consumer>
+                {context => (
+                    <React.Fragment>
+                        {!context.state.german && <NavLinks altStyleAllowed={true} links={MainNavLinksData} toggleMobileMenu={props.toggleMobileMenu} />}
+                        {context.state.german && <NavLinks altStyleAllowed={true} links={MainNavLinksDataGerman} toggleMobileMenu={props.toggleMobileMenu} />}
+                    </React.Fragment>
+                )}
+            </SiteContext.Consumer>
+
         </NavStyle>
     )
 }

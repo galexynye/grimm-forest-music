@@ -10,6 +10,7 @@ import grimmWords from '../../../assets/GrimmGraphics/grimmWords_White_406x145.p
 import SnowFlake from '../../../assets/GrimmGraphics/snowflake_100x100.png'
 
 
+
 const HomeContainer = styled.div`
   min-height: calc(95vh - ${msTheme.heights.header});
   display: flex;
@@ -17,11 +18,14 @@ const HomeContainer = styled.div`
 
 const SnowflakeWrapper = styled.div`
   position: absolute; 
-  top: 0;
-  right: 0;
+  top: 7px;
+  right: 120px;
   img{
     padding: 25px;
-    max-width: 40px;
+    max-width: 35px;
+  }
+  &:hover{
+      cursor: pointer;
   }
   ${msTheme.mediaquery().medium}{
     display: none;
@@ -48,7 +52,6 @@ export default class Home extends React.Component {
         const { pageData } = this.props
         return (
 
-
             <HomeContainer>
                 {this.state.snowing && <Snow />}
                 <GridContainer margin="20px auto" gTC="1fr 1fr" gTCM="1fr" >
@@ -64,6 +67,7 @@ export default class Home extends React.Component {
                             {/* <img src={grimmWords} /> */}
                             <p>{pageData.p1}</p>
                             <p>{pageData.p2}</p>
+                            {/* <p>{pageData.p3}</p> */}
                             <WidthWrapper width="250px" margin="0px">
                                 <ButtonCTA to={pageData.to} text="Listen" color={msTheme.colors.bgColor} bgColor={msTheme.colors.primary} />
                             </WidthWrapper>
@@ -75,7 +79,10 @@ export default class Home extends React.Component {
                         <img src={Logo} />
 
                     </FlexboxOrganism>
+
+
                 </GridContainer>
+
 
             </HomeContainer>
 

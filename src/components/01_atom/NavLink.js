@@ -12,7 +12,7 @@ const StandardLinkStyle = styled.div`
            /* font-size: 25px; */
             color: ${msTheme.colors.text};
              /* color: #998C00; */
-            /* font-family: ${msTheme.font.headerFont};  */
+            font-family: ${msTheme.font.headerFont}; 
             font-weight: 300;    
             &:hover{
                 text-decoration: none;

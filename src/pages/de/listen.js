@@ -2,8 +2,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
-import { pageData } from '../sitedata/PageData/listenData'
-import ListenComponent from '../components/05_page/Pages/listen'
+import { pageDataGerman } from '../../sitedata/PageData/listenData'
+import ListenComponent from '../../components/05_page/Pages/listen'
 
 
 // Services Page, contains the State and methods for the React Player 
@@ -29,7 +29,7 @@ class Listen extends React.PureComponent {
                 >
 
                 </Helmet>
-                <ListenComponent pageData={pageData} />
+                <ListenComponent pageData={pageDataGerman} />
 
 
             </div>

@@ -8,19 +8,19 @@ import { pageData } from '../sitedata/PageData/aboutData'
 
 
 class About extends React.Component {
-    render() {
-        const { data } = this.props
-        const siteTitle = data.site.siteMetadata.title
-        return (
-            <SiteContainer>
-                <Helmet
-                    meta={[{ name: 'description', content: 'About Grimm Forest Music' }]}
-                    title={`About - General Grimm Forest Music | ${siteTitle}`}
-                />
-                <AboutComponent aboutData={pageData} />
-            </SiteContainer>
-        )
-    }
+  render() {
+    const { data } = this.props
+    const siteTitle = data.site.siteMetadata.title
+    return (
+      <SiteContainer>
+        <Helmet
+          meta={[{ name: 'description', content: 'About Grimm Forest Music' }]}
+          title={`About - General Grimm Forest Music | ${siteTitle}`}
+        />
+        <AboutComponent pageData={pageData} />
+      </SiteContainer>
+    )
+  }
 }
 
 export default About

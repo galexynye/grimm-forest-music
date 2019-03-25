@@ -4,6 +4,7 @@ import { msTheme } from '../../styles/Theme'
 import HomeLogo from '../../assets/GrimmGraphics/grimmTreeCircle_White_150x150.png'
 import styled from 'styled-components'
 import { ResponsiveImage } from '../00_utilities/Utilities'
+import { SiteContext } from '../05_page/Layout/SiteContainer';
 
 // const HomeLinkStyle = styled.div`
 //   @media (max-width: 900px) {
@@ -30,14 +31,18 @@ export const HomeLinkLogo = ({ padding, bgColor, borderRadius }) => {
   return (
     // <HomeLinkStyle displayMobile={props.displayMobile}>
     <HomeLinkStyle padding={padding} bgColor={bgColor} borderRadius={borderRadius} >
+      <SiteContext.Consumer>
+        {context => (
+          <Link to={context.state.german ? "/de/home" : "/"}>
+            <img
+              src={HomeLogo}
+              alt="Home Link Logo pic"
+            />
 
-      <Link to="/">
-        <img
-          src={HomeLogo}
-          alt="Home Link Logo pic"
-        />
+          </Link>
+        )}
 
-      </Link>
+      </SiteContext.Consumer>
 
     </HomeLinkStyle>
   )

@@ -1,5 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { Location } from '@reach/router';
+import { navigate } from "gatsby"
 import { createGlobalStyle } from 'styled-components'
 import styled from 'styled-components'
 import { msTheme } from '../../../styles/Theme'
@@ -17,17 +19,6 @@ const SiteContainerStyle = styled.div`
     position: relative;
 `
 
-const Poop = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-`
-const PoopButton = styled.div`
-    position: fixed;
-    top: 0;
-    left: 50%;
-    z-index: 10000000000000000;
-`
 
 const GlobalStyle = createGlobalStyle`
 
@@ -260,25 +251,46 @@ a {
 
 // Context Api Context
 
-const SiteContext = React.createContext();
+export const SiteContext = React.createContext();
 
 // Provider component. Global State
 
-class SiteProvider extends React.Component {
+export class SiteProvider extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             german: false,
-            bob: "Bob is meah"
+            bob: "Bob is meah",
+            number: 1
         }
     }
     render() {
         return (
             <SiteContext.Provider value={{
                 state: this.state,
-                toggleGerman: () => this.setState({
-                    german: !this.state.german
-                })
+                toggleGerman: (location) => {
+                    this.setState({
+                        german: !this.state.german,
+                    })
+                    if (location === "/") {
+                        navigate("/de/home")
+                    } else if (location === "/de/home") {
+                        navigate("/")
+                    } else if (location.startsWith("/de")) {
+                        let to = location.slice(3)
+                        navigate(to)
+                    } else {
+                        let to = "/de" + location
+                        navigate(to)
+                    }
+                    //starts with /de, navigate to the location with /de sliced from it.
+                    // otherwise, we want to add it to it, then navigate to the 
+                },
+                onloadGerman: (localGerman) => {
+                    this.setState({
+                        german: localGerman
+                    })
+                }
             }}>
                 {this.props.children}
             </SiteContext.Provider>
@@ -286,6 +298,28 @@ class SiteProvider extends React.Component {
     }
 
 }
+
+const GermanToggButton = styled.button`
+    position: absolute;
+    z-index: 100;
+    top: 38px;
+    right: 38px;
+    background-color: #ffffff00;
+    color: ${msTheme.colors.text};
+    border: none;
+    font-size: 19px;
+	font-weight: 300;
+    font-family: ${msTheme.font.headerFont};
+    &:hover {
+        cursor: pointer;
+    }
+    ${msTheme.mediaquery().medium}{
+        top: 20px;
+        right: 5px;
+    }
+`
+
+
 
 
 class SiteContainer extends React.Component {
@@ -298,6 +332,8 @@ class SiteContainer extends React.Component {
         }
     }
     componentDidMount() {
+        let german = this.context.state.german
+        console.log(german)
         this._handleWindowSizeChange()
         window.addEventListener('resize', this._handleWindowSizeChange)
     }
@@ -324,14 +360,16 @@ class SiteContainer extends React.Component {
         const { children, headerPosition } = this.props
         return (
             // From The SiteContext
-            <SiteProvider>
+            <React.Fragment>
+
                 <Helmet
-                    meta={[
-                        {
-                            name: 'google-site-verification',
-                            content: 'ApEgiydr2XV738hMqiDL6JyWjg0Cq5ybbWmQrnDHq9c',
-                        },
-                    ]}
+                    // Search console verification
+                    // meta={[
+                    //     {
+                    //         name: 'google-site-verification',
+                    //         content: 'ApEgiydr2XV738hMqiDL6JyWjg0Cq5ybbWmQrnDHq9c',
+                    //     },
+                    // ]}
                     link={[
                         {
                             rel: 'shortcut icon',
@@ -340,6 +378,7 @@ class SiteContainer extends React.Component {
                         },
 
                     ]}
+
                 >
                     {/* <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie|Ubuntu" rel="stylesheet" /> */}
 
@@ -352,22 +391,38 @@ class SiteContainer extends React.Component {
                     <link href="https://fonts.googleapis.com/css?family=Dosis:300|Khula:300" rel="stylesheet" />
 
 
+
                 </Helmet>
                 <GlobalStyle />
 
-                {/* {!this.state.german && <Poop><p>Poop</p></Poop>}
-                {this.state.german && <Poop><p>Das Poop</p></Poop>}
-                <PoopButton><p onClick={this._toggleGerman}>Toggle Poop</p></PoopButton> */}
                 <SidebarMobileNav mobileMenuOpen={this.state.mobileMenuOpen} toggleMobileMenu={this._toggleMobileMenu} />
                 <MainContainer mobileMenuOpen={this.state.mobileMenuOpen} toggleMobileMenu={this._toggleMobileMenu}>
                     <Header toggleMobileMenu={this._toggleMobileMenu} headerPosition={headerPosition}></Header>
                     {children}
                     <Footer></Footer>
+                    <SiteContext.Consumer>
+                        {context => (
+
+                            <Location>
+                                {({ location }) => {
+                                    // console.log(location)
+                                    return <GermanToggButton onClick={() => context.toggleGerman(location.pathname)}>EN / DE</GermanToggButton>
+                                }}
+                            </Location>
+
+
+                        )}
+                    </SiteContext.Consumer>
                 </MainContainer>
-            </SiteProvider>
+
+
+
+            </React.Fragment>
         )
     }
 }
+
+SiteContainer.contextType = SiteContext
 
 export default SiteContainer
 

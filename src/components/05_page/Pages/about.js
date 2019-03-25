@@ -10,10 +10,10 @@ import { ButtonCTA } from '../../01_atom/ButtonCTA';
 
 class About extends React.Component {
     render() {
-        const { aboutData } = this.props
+        const { pageData } = this.props
         return (
             <div>
-                <PageTitle text={aboutData.pageTitle.text} description={aboutData.pageTitle.description} ></PageTitle>
+                <PageTitle text={pageData.pageTitle.text} description={pageData.pageTitle.description} ></PageTitle>
                 <GridContainer gTC="1fr 1fr" gridGap="140px 80px" gridGapM="40px" gTCM="1fr" margin="30px auto">
                     <GridItem orderM="2" alignSelf="center">
                         {/* <img src={Millenia} style={{ maxWidth: "100%", borderRadius: "40px" }} /> */}
@@ -22,10 +22,10 @@ class About extends React.Component {
                     <GridItem orderM="1" alignSelf="center">
 
                         <div  >
-                            <h2>{aboutData.story.h2}</h2>
-                            <p>{aboutData.story.p1}</p>
+                            <h2>{pageData.story.h2}</h2>
+                            <p>{pageData.story.p1}</p>
                             <WidthWrapper width="250px" margin="0px">
-                                <ButtonCTA text={aboutData.story.button.text} to={aboutData.story.button.to} bgColor={msTheme.colors.primary} />
+                                <ButtonCTA text={pageData.story.button.text} to={pageData.story.button.to} bgColor={msTheme.colors.primary} />
                             </WidthWrapper>
                         </div>
 
@@ -35,8 +35,8 @@ class About extends React.Component {
 
 
                         <div>
-                            <h2>{aboutData.saywell.h2}</h2>
-                            <p>{aboutData.saywell.p1}</p>
+                            <h2>{pageData.saywell.h2}</h2>
+                            <p>{pageData.saywell.p1}</p>
                         </div>
 
                         {/* </FlexboxOrganism> */}
@@ -57,10 +57,10 @@ class About extends React.Component {
 
 
                         <div>
-                            <h2>{aboutData.offer.h2}</h2>
-                            <p>{aboutData.offer.p1}</p>
+                            <h2>{pageData.offer.h2}</h2>
+                            <p>{pageData.offer.p1}</p>
                             <WidthWrapper width="250px" margin="0px">
-                                <ButtonCTA to={aboutData.offer.button.to} text={aboutData.offer.button.text} bgColor={msTheme.colors.primary} />
+                                <ButtonCTA to={pageData.offer.button.to} text={pageData.offer.button.text} bgColor={msTheme.colors.primary} />
                             </WidthWrapper>
                         </div>
 

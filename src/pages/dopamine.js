@@ -1,17 +1,19 @@
 
 import React from 'react'
+import { Helmet } from 'react-helmet'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { findDOMNode } from 'react-dom'
 import ReactPlayer from 'react-player'
-import { WidthWrapper, GridContainer, ResponsiveIframe, FlexboxOrganism, ResponsivePhoto } from '../../00_utilities/Utilities'
-import SiteContainer from '../Layout/SiteContainer'
-import { msTheme } from '../../../styles/Theme'
-import { ArticleContainer } from '../ArticleContainer'
-import { servicesPortfolio } from "../../../sitedata/musicData";
-import { ButtonCTA } from '../../01_atom/ButtonCTA';
-import { ButtonNoStyle } from '../../01_atom/BottonNoStyle';
-import { PortfolioCard } from '../../02_molecule/PortfolioCard';
-import { PageTitle } from '../../01_atom/PageTitle'
+import { WidthWrapper, GridContainer, ResponsiveIframe, FlexboxOrganism, ResponsivePhoto } from '../components/00_utilities/Utilities'
+import SiteContainer from '../components/05_page/Layout/SiteContainer'
+import { msTheme } from '../styles/Theme'
+import { ArticleContainer } from '../components/05_page/ArticleContainer'
+import { servicesPortfolio } from "../sitedata/musicData";
+import { ButtonCTA } from '../components/01_atom/ButtonCTA';
+import { ButtonNoStyle } from '../components/01_atom/BottonNoStyle';
+import { PortfolioCard } from '../components/02_molecule/PortfolioCard';
+import { PageTitle } from '../components/01_atom/PageTitle'
 
 
 const Fixer = styled.div`
@@ -119,8 +121,8 @@ class Services extends React.PureComponent {
 
 
     render() {
-        const { pageData } = this.props
-
+        const { data } = this.props
+        const siteTitle = data.site.siteMetadata.title
 
         const { url, playing, controls, light, volume, muted, loop, played, loaded, duration, playbackRate, pip, iframe } = this.state
 
@@ -173,67 +175,88 @@ class Services extends React.PureComponent {
 
 
         return (
-            <div>
-                <SiteContainer>
+            // <div>
+            <SiteContainer>
+                <Helmet
+                    meta={[{ name: 'description', content: 'Professional producing, mixing, mastering and original music for hire.' }]}
+                    title={`Listen | ${siteTitle}`}
+                >
+                </Helmet>
+
+                <audio controls>
+                    <source src="https://s3.amazonaws.com/a-dev-public/ms-services-portfolio/Dopamine_ForDance128k.mp3" type="audio/mpeg" />
+                </audio>
+
+                <a href="https://s3.amazonaws.com/a-dev-public/Dopamine_ForDance128k.mp3">DownloadDopamine</a>
+                {/* <PageTitle text="Listen" description="A Sampling of Original Musical Works"></PageTitle> */}
+
+                {/* {MusicPortfolio} */}
 
 
-                    <PageTitle text={pageData.pageTitle.title} description={pageData.pageTitle.description}></PageTitle>
 
-                    {MusicPortfolio}
+            </SiteContainer>
 
+            /* <Fixer>
+                {this.state.showReactPlayer &&
+                    // Article Container restricts the width on mobile playback
+                    <ArticleContainer margin="0px auto" padding="0px">
+                        <Fixer width={iframe ? '50vw' : '99.5vw'}>
+                            <WidthWrapper width="50px" widthSmall="50px" margin="0px 0px 0px auto" className="hideMedium">
 
+                                <ButtonCTA
+                                    _handleClick={this.stop}
+                                    bgColor={msTheme.colors.primary}
+                                    text="x"
+                                    color="white"
+                                    margin=" 0px"
+                                    borderRadius="50%"
+                                />
+                            </WidthWrapper>
 
-                </SiteContainer>
-
-                <Fixer> {/* React PLayer Goes Outside the SiteContainer Because it needs to be a FIXED to the Window and NOT the <MainContainer> on mobile */}
-                    {this.state.showReactPlayer &&
-                        // Article Container restricts the width on mobile playback
-                        <ArticleContainer margin="0px auto" padding="0px">
-                            <Fixer width={iframe ? '50vw' : '99.5vw'}>
-                                <WidthWrapper width="50px" widthSmall="50px" margin="0px 0px 0px auto" className="hideMedium">
-                                    {/* Closes out the player, not shown on mobile */}
-                                    <ButtonCTA
-                                        _handleClick={this.stop}
-                                        bgColor={msTheme.colors.primary}
-                                        text="x"
-                                        color="white"
-                                        margin=" 0px"
-                                        borderRadius="50%"
-                                    />
-                                </WidthWrapper>
-
-                                <ResponsiveIframe paddingTop={!iframe ? '0px' : false} >
-                                    <ReactPlayer
-                                        ref={this.ref}
-                                        url={url}
-                                        width='100%'
-                                        height={iframe ? '100%' : '42px'}
-                                        playing={playing}
-                                        controls={controls}
-                                        light={light}
-                                        loop={loop}
-                                        playbackRate={playbackRate}
-                                        volume={volume}
-                                        muted={muted}
-                                        // onReady={() => console.log('onReady')}
-                                        // onStart={() => console.log('onStart')}
-                                        onPlay={this.onPlay}
-                                        onPause={this.onPause}
-                                        // onBuffer={() => console.log('onBuffer')}
-                                        // onSeek={e => console.log('onSeek', e)}
-                                        onEnded={this.onEnded}
-                                        // onError={e => console.log('onError', e)}
-                                        onProgress={this.onProgress}
-                                        onDuration={this.onDuration}
-                                    />
-                                </ResponsiveIframe>
-                            </Fixer>
-                        </ArticleContainer>
-                    }
-                </Fixer>
-            </div>
+                            <ResponsiveIframe paddingTop={!iframe ? '0px' : false} >
+                                <ReactPlayer
+                                    ref={this.ref}
+                                    url={url}
+                                    width='100%'
+                                    height={iframe ? '100%' : '42px'}
+                                    playing={playing}
+                                    controls={controls}
+                                    light={light}
+                                    loop={loop}
+                                    playbackRate={playbackRate}
+                                    volume={volume}
+                                    muted={muted}
+                                    // onReady={() => console.log('onReady')}
+                                    // onStart={() => console.log('onStart')}
+                                    onPlay={this.onPlay}
+                                    onPause={this.onPause}
+                                    // onBuffer={() => console.log('onBuffer')}
+                                    // onSeek={e => console.log('onSeek', e)}
+                                    onEnded={this.onEnded}
+                                    // onError={e => console.log('onError', e)}
+                                    onProgress={this.onProgress}
+                                    onDuration={this.onDuration}
+                                />
+                            </ResponsiveIframe>
+                        </Fixer>
+                    </ArticleContainer>
+                }
+            </Fixer> */
+            /* </div> */
         )
     }
 }
 
 export default Services
+
+export const pageQuery = graphql`
+  query {
+   site {
+    siteMetadata {
+      title    
+    }
+  }
+  
+
+}
+`

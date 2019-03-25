@@ -18,7 +18,6 @@ export const ButtonCTAStyle = styled.button`
   max-width: 100%;
   color: ${props => props.color || msTheme.colors.text};
   align-self: flex-end;
-
   background-color: ${props => props.bgColor || 'white'};
 
   ${msTheme.mediaquery().medium}{

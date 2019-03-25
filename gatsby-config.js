@@ -23,7 +23,7 @@ module.exports = {
         // Exclude specific pages or groups of pages using glob parameters
         // See: https://github.com/isaacs/minimatch
         // The example below will exclude the single `path/to/page` and all routes beginning with `category`
-        // exclude: ["/tags/*"],
+        exclude: ["/tags/*", "/blog/*"],
         query: `
         {
           site {
@@ -76,12 +76,12 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: `UA-100042737-1`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-75427625-2`,
+      },
+    },
     // `gatsby-plugin-feed`, //Something with blog
     {
       resolve: `gatsby-plugin-manifest`,

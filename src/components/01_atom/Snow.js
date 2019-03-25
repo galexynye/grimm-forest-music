@@ -196,9 +196,9 @@ export class Snow extends PureComponent {
         return (
             <div>
                 <SnowCanvas>
-                    <SnowflakeWrapper onClick={this.snowToggle}>
+                    {/* <SnowflakeWrapper onClick={this.snowToggle}>
                         <img src={Snowflake} />
-                    </SnowflakeWrapper>
+                    </SnowflakeWrapper> */}
                     <canvas className="snow"></canvas>
                 </SnowCanvas>
             </div>
