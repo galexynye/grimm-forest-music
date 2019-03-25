@@ -8,7 +8,7 @@ export const pageData = {
 export const pageDataGerman = {
     pageTitle: {
         title: "Listen",
-        description: "A Sampling of Original Musical German"
+        description: "Eine Auswahl originaler Musik"
     }
 
 }
