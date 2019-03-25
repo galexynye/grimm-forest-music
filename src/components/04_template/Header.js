@@ -58,12 +58,13 @@ export class Header extends React.Component {
     }
 
     render() {
+        const { noGerman } = this.props
         return (
             <HeaderContainer headerPosition={this.props.headerPosition}>
                 <HeaderStyle>
                     <MobileToggle toggleMobileMenu={this.props.toggleMobileMenu} />
                     <HomeLinkLogoWrapper>
-                        <HomeLinkLogo />
+                        <HomeLinkLogo noGerman={noGerman} />
                     </HomeLinkLogoWrapper>
 
                     <NavMain margin="0px 20px" linkMargin="0px 0px 0px 30px" />

@@ -80,8 +80,8 @@ class BlogPostTemplate extends React.Component {
         return (
             <div>
 
-                {!this.state.isTop && <ShareButtons url={`https://www.musicsequencing.com${post.fields.slug}`} />}
-                <SiteContainer>
+                {!this.state.isTop && <ShareButtons url={`https://www.grimmforestmusic.com${post.fields.slug}`} />}
+                <SiteContainer noGerman={true} >
 
                     <ArticleContainer>
                         {/* <Layout location={this.props.location}> */}

@@ -21,76 +21,76 @@ const TagsList = styled.ul`
 `
 
 class Category extends React.Component {
-    render() {
+  render() {
 
-        const { pageContext, data } = this.props
-        const siteTitle = data.site.siteMetadata.title
-        const { category } = pageContext
-        const { edges, totalCount } = data.allMarkdownRemark
-        const posts = edges;
-        const categoryHeader = `${category}`
-        let categoryDescription
+    const { pageContext, data } = this.props
+    const siteTitle = data.site.siteMetadata.title
+    const { category } = pageContext
+    const { edges, totalCount } = data.allMarkdownRemark
+    const posts = edges;
+    const categoryHeader = `${category}`
+    let categoryDescription
 
-        for (let i = 0; i < posts.length; i++) {
-            if (posts[i].node.frontmatter.categoryDescription) {
-                categoryDescription = posts[i].node.frontmatter.categoryDescription
-            }
-        }
-        let src
-        const RecentPostCards = posts.map((post, i) => {
-            // Checks if no featured image
-            // if (!post.node.frontmatter.featuredImage) {
-            //     src = TestImg
-            // } else {
-            //     src = post.node.frontmatter.featuredImage.childImageSharp.fluid.src                
-            // }
-
-
-            return (
-                // <GridItem gCS={i == 0 ? "1" : 'auto'} gCE={i == 0 ? "3" : 'auto'} >
-                //  <GridItem gCS="1" gCE="3" >
-                <GridItem >
-                    <PostCardBlog
-                        key={post.node.fields.slug}
-                        // learnOrBlog={post.node.frontmatter.category}
-                        // snippet={i < 2 ? post.node.excerpt : ''}
-                        snippet={post.node.excerpt}
-                        date={post.node.frontmatter.date}
-                        title={post.node.frontmatter.title}
-                        // category={post.node.frontmatter.category}
-                        // subcategory={post.node.frontmatter.subcategory}
-                        slug={post.node.fields.slug}
-                        // src={src}
-                        tags={post.node.frontmatter.tags}
-                        // titleHeight={i > 0 ? "59px" : 'auto'}
-                        titleHeight="59px"
-                        // tagsHeight={i > 0 ? "59px" : 'auto'}
-                        tagsHeight="59px"
-                    />
-                </GridItem>
-            )
-
-
-        })
-
-
-
-
-        return (
-            <SiteContainer>
-                <Helmet
-                    htmlAttributes={{ lang: 'en' }}
-                    meta={[{ name: 'description', content: `${categoryDescription}` }]}
-                    title={`${category} - Learn ${category} | ${siteTitle}`}
-                />
-                <PageTitle text={categoryHeader} description={categoryDescription} />
-                <GridContainer gTC="repeat(3, 1fr)" gTCL="repeat(2, 1fr)" gTCM="repeat(1, 1fr)" gridGap="20px 20px" className="mT40 mB40">
-                    {RecentPostCards}
-                </GridContainer>
-            </SiteContainer>
-        )
-
+    for (let i = 0; i < posts.length; i++) {
+      if (posts[i].node.frontmatter.categoryDescription) {
+        categoryDescription = posts[i].node.frontmatter.categoryDescription
+      }
     }
+    let src
+    const RecentPostCards = posts.map((post, i) => {
+      // Checks if no featured image
+      // if (!post.node.frontmatter.featuredImage) {
+      //     src = TestImg
+      // } else {
+      //     src = post.node.frontmatter.featuredImage.childImageSharp.fluid.src                
+      // }
+
+
+      return (
+        // <GridItem gCS={i == 0 ? "1" : 'auto'} gCE={i == 0 ? "3" : 'auto'} >
+        //  <GridItem gCS="1" gCE="3" >
+        <GridItem >
+          <PostCardBlog
+            key={post.node.fields.slug}
+            // learnOrBlog={post.node.frontmatter.category}
+            // snippet={i < 2 ? post.node.excerpt : ''}
+            snippet={post.node.excerpt}
+            date={post.node.frontmatter.date}
+            title={post.node.frontmatter.title}
+            // category={post.node.frontmatter.category}
+            // subcategory={post.node.frontmatter.subcategory}
+            slug={post.node.fields.slug}
+            // src={src}
+            tags={post.node.frontmatter.tags}
+            // titleHeight={i > 0 ? "59px" : 'auto'}
+            titleHeight="59px"
+            // tagsHeight={i > 0 ? "59px" : 'auto'}
+            tagsHeight="59px"
+          />
+        </GridItem>
+      )
+
+
+    })
+
+
+
+
+    return (
+      <SiteContainer>
+        <Helmet
+          htmlAttributes={{ lang: 'en' }}
+          meta={[{ name: 'description', content: `${categoryDescription}` }]}
+          title={`${category} - Learn ${category} | ${siteTitle}`}
+        />
+        <PageTitle text={categoryHeader} description={categoryDescription} />
+        <GridContainer gTC="repeat(3, 1fr)" gTCL="repeat(2, 1fr)" gTCM="repeat(1, 1fr)" gridGap="20px 20px" className="mT40 mB40">
+          {RecentPostCards}
+        </GridContainer>
+      </SiteContainer>
+    )
+
+  }
 }
 
 

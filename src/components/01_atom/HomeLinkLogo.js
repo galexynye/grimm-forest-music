@@ -27,11 +27,19 @@ const HomeLinkStyle = styled.div`
   border-radius: ${props => props.borderRadius || '0px'};
 `
 
-export const HomeLinkLogo = ({ padding, bgColor, borderRadius }) => {
+export const HomeLinkLogo = ({ padding, bgColor, borderRadius, noGerman }) => {
   return (
     // <HomeLinkStyle displayMobile={props.displayMobile}>
     <HomeLinkStyle padding={padding} bgColor={bgColor} borderRadius={borderRadius} >
-      <SiteContext.Consumer>
+      {noGerman && <Link to={"/"}>
+        <img
+          src={HomeLogo}
+          alt="Home Link Logo pic"
+        />
+
+      </Link>
+      }
+      {!noGerman && <SiteContext.Consumer>
         {context => (
           <Link to={context.state.german ? "/de/home" : "/"}>
             <img
@@ -42,7 +50,8 @@ export const HomeLinkLogo = ({ padding, bgColor, borderRadius }) => {
           </Link>
         )}
 
-      </SiteContext.Consumer>
+      </SiteContext.Consumer>}
+
 
     </HomeLinkStyle>
   )

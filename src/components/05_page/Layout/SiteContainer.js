@@ -251,7 +251,15 @@ a {
 
 // Context Api Context
 
-export const SiteContext = React.createContext();
+const startingState = {
+    german: false,
+}
+
+const startingValue = {
+    state: { german: false },
+}
+
+export const SiteContext = React.createContext(startingValue);
 
 // Provider component. Global State
 
@@ -259,9 +267,7 @@ export class SiteProvider extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            german: false,
-            bob: "Bob is meah",
-            number: 1
+            german: false
         }
     }
     render() {
@@ -272,6 +278,9 @@ export class SiteProvider extends React.Component {
                     this.setState({
                         german: !this.state.german,
                     })
+
+
+
                     if (location === "/") {
                         navigate("/de/home")
                     } else if (location === "/de/home") {
@@ -357,7 +366,7 @@ class SiteContainer extends React.Component {
         }
     }
     render() {
-        const { children, headerPosition } = this.props
+        const { children, headerPosition, noGerman } = this.props
         return (
             // From The SiteContext
             <React.Fragment>
@@ -395,12 +404,12 @@ class SiteContainer extends React.Component {
                 </Helmet>
                 <GlobalStyle />
 
-                <SidebarMobileNav mobileMenuOpen={this.state.mobileMenuOpen} toggleMobileMenu={this._toggleMobileMenu} />
+                <SidebarMobileNav mobileMenuOpen={this.state.mobileMenuOpen} toggleMobileMenu={this._toggleMobileMenu} noGerman={noGerman} />
                 <MainContainer mobileMenuOpen={this.state.mobileMenuOpen} toggleMobileMenu={this._toggleMobileMenu}>
-                    <Header toggleMobileMenu={this._toggleMobileMenu} headerPosition={headerPosition}></Header>
+                    <Header toggleMobileMenu={this._toggleMobileMenu} headerPosition={headerPosition} noGerman={noGerman}></Header>
                     {children}
                     <Footer></Footer>
-                    <SiteContext.Consumer>
+                    {!noGerman && <SiteContext.Consumer>
                         {context => (
 
                             <Location>
@@ -412,7 +421,7 @@ class SiteContainer extends React.Component {
 
 
                         )}
-                    </SiteContext.Consumer>
+                    </SiteContext.Consumer>}
                 </MainContainer>
 
 

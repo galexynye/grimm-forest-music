@@ -16,56 +16,56 @@ const TagsList = styled.ul`
 `
 
 const Tags = ({ pageContext, data }) => {
-    const { tag } = pageContext
-    const { edges, totalCount } = data.allMarkdownRemark
-    // const tagHeader = `Post${
-    //   totalCount === 1 ? '' : 's'
-    //   } tagged with "${tag}"`
-    const tagHeader = `Posts with "${tag}"`
+  const { tag } = pageContext
+  const { edges, totalCount } = data.allMarkdownRemark
+  // const tagHeader = `Post${
+  //   totalCount === 1 ? '' : 's'
+  //   } tagged with "${tag}"`
+  const tagHeader = `Posts with "${tag}"`
 
-    return (
-        <SiteContainer>
-            <Helmet
-                htmlAttributes={{ lang: 'en' }}
-                meta={[{ name: 'description', content: `Posts tagged with ${tag} on Music Sequencing` }]}
-                title={`${tag} Posts on Music Sequencing`}
-            />
-            <PageTitle text={tagHeader}></PageTitle>
-            <ArticleContainer>
-                {/* <h1
+  return (
+    <SiteContainer>
+      <Helmet
+        htmlAttributes={{ lang: 'en' }}
+        meta={[{ name: 'description', content: `Posts tagged with ${tag} on Music Sequencing` }]}
+        title={`${tag} Posts on Music Sequencing`}
+      />
+      <PageTitle text={tagHeader}></PageTitle>
+      <ArticleContainer>
+        {/* <h1
         >{tagHeader}
         </h1> */}
-                <TagsList>
-                    {edges.map(({ node }) => {
-                        const { title } = node.frontmatter
-                        const { slug } = node.fields
-                        return (
-                            <li key={slug} className="headerFont"
-                            // style={{ marginBottom: '10px' }}
-                            >
-                                <Link to={slug}>{title}</Link>
-                            </li>
-                        )
-                    })}
-                </TagsList>
-                {/*
+        <TagsList>
+          {edges.map(({ node }) => {
+            const { title } = node.frontmatter
+            const { slug } = node.fields
+            return (
+              <li key={slug} className="headerFont"
+              // style={{ marginBottom: '10px' }}
+              >
+                <Link to={slug}>{title}</Link>
+              </li>
+            )
+          })}
+        </TagsList>
+        {/*
               This links to a page that does not yet exist.
               We'll come back to it!
             */}
-                <Link className="headerFont" to="/tags"
-                // style={{ marginTop: '10px' }}
-                >
-                    All tags
+        <Link className="headerFont" to="/tags"
+        // style={{ marginTop: '10px' }}
+        >
+          All tags
       </Link>
 
 
-            </ArticleContainer>
+      </ArticleContainer>
 
 
 
 
-        </SiteContainer>
-    )
+    </SiteContainer>
+  )
 }
 
 // Tags.propTypes = {

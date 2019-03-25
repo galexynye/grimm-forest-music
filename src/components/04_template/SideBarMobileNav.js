@@ -31,6 +31,7 @@ export const SidebarMobileNav = (props) => {
         <MobileNavContainer mobileMenuOpen={props.mobileMenuOpen}>
             <MobileNavStyle>
                 <HomeLinkLogo height="40px"
+                    noGerman={props.noGerman}
                     toggleMobileMenu={props.toggleMobileMenu} //TODO: Doesn't Work need to go programmatically with link
                 />
                 <NavMain
