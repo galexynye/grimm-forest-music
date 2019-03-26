@@ -35,7 +35,7 @@ export const servicesPortfolio = [
     { title: "60 Second Sampler", src: Grimm60Music, iframe: false, img: Grimm60, watchOrListen: "Listen", credits: "Writer, Producer, Mixing, Mastering" },
     { title: "For All I Know", src: ForAllIKnow, iframe: false, img: ForAllIknowPic, watchOrListen: "Listen", credits: "Writer, Producer, Mixing, Mastering" },
     { title: "Hang Out", src: HangOut, iframe: false, img: HangOutPic, watchOrListen: "Listen", credits: "Co-writer, Producer, Mixing, Mastering" },
-    { title: "A Good Thought", src: AGoodThought, iframe: false, img: AGoodThoughtPic, watchOrListen: "Listen", credits: "Co-writer, Producer, Mixing, Mastering" },
+    { title: "A Good Thought", src: AGoodThought, iframe: false, img: AGoodThoughtPic, watchOrListen: "Listen", credits: "Writer, Producer, Mixing, Mastering" },
     { title: "Karma", src: Karma, iframe: false, img: KarmaPic, watchOrListen: "Listen", credits: "Writer, Producer, Mixing" },
     { title: "Rift", src: "https://www.youtube.com/watch?v=H0Wj1DL-lyg", iframe: true, img: RiftPic, watchOrListen: "Watch", credits: "Writer, Producer, Mixing" },
     { title: "Bed of Thorns", src: BedOfThorns, iframe: false, img: BedOfThornsPic, watchOrListen: "Listen", credits: "Writer, Sound Design, Mixing, Mastering" },
