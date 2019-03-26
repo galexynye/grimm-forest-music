@@ -5,7 +5,7 @@ export const pageData = {
     },
     story: {
         h2: "The Studio",
-        p1: "Grimm Forest Music & Sound is the studio of artist-producer, Saywell. The name Grimm Forest comes from the studio's location in Germany's Black Forest, an inspiration for many of the Grimm Fairytales.",
+        p1: "Grimm Forest Music & Sound is the studio of artist-producer, Saywell. The name Grimm Forest comes from the studio's location in Germany's Black Forest, an inspiration for many of the Grimm brothers' fairytales.",
         button: { text: "Listen", to: "/listen" }
     },
     saywell: {

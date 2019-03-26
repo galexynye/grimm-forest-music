@@ -198,7 +198,7 @@ class Services extends React.PureComponent {
                                         text="x"
                                         color="white"
                                         margin=" 0px"
-                                        borderRadius="50%"
+                                        borderRadius="5px"
                                     />
                                 </WidthWrapper>
 

@@ -12,7 +12,7 @@ export const ButtonCTAStyle = styled.button`
   padding: ${props => props.padding || msTheme.utilities().inputAndButtonShare.padding};
   border: ${props => props.border || msTheme.utilities().inputAndButtonShare.border};
   border-radius: ${props => props.borderRadius || msTheme.utilities().inputAndButtonShare.borderRadius};
-  font-family: ${msTheme.font.bodyFont};
+  font-family: ${msTheme.font.headerFont};
   font-size: 19px;
   width: 100%; 
   max-width: 100%;

@@ -10,7 +10,7 @@ import BedOfThornsPic from '../assets/ServicesPortfolio/BedOfThornsPic.jpg'
 const FartFinale = 'https://s3.amazonaws.com/a-dev-public/ms-services-portfolio/FartFinale.mp3'
 
 import FartFinalePic from '../assets/ServicesPortfolio/FartFinalePic.jpg'
-const HappyLatin = 'https://s3.amazonaws.com/a-dev-public/ms-services-portfolio/HappyLatin_Remixed_v4_AddVoxSamplesBack_256.mp3'
+const HappyLatin = 'https://s3.amazonaws.com/a-dev-public/ms-services-portfolio/HappyLatin_Remixed_v5_TouchUp.mp3'
 
 import HappyLatinPic from '../assets/ServicesPortfolio/HappyLatin.jpg'
 const Imagine = 'https://s3.amazonaws.com/a-dev-public/ms-services-portfolio/Imagine_v8.mp3'
@@ -26,17 +26,25 @@ import AfterTheFall from '../assets/ServicesPortfolio/AftertheFallIPic.jpg'
 import AllISee from '../assets/ServicesPortfolio/allISee.jpg'
 import HandOfGod from '../assets/ServicesPortfolio/HandOfGodfromIMDB.jpeg'
 import Poltergeist from '../assets/ServicesPortfolio/PoltergeistIMDB.jpeg'
+import Grimm60 from '../assets/ServicesPortfolio/Grimm60.jpg'
+const Grimm60Music = 'https://s3.amazonaws.com/a-dev-public/ms-services-portfolio/Grimm60.mp3'
+import AGoodThoughtPic from '../assets/ServicesPortfolio/AGoodThought.jpg'
+const AGoodThought = 'https://s3.amazonaws.com/a-dev-public/ms-services-portfolio/AGoodThought_v2_turnDownVox_256.mp3'
 
 export const servicesPortfolio = [
+    { title: "60 Second Sampler", src: Grimm60Music, iframe: false, img: Grimm60, watchOrListen: "Listen", credits: "Writer, Producer, Mixing, Mastering" },
     { title: "For All I Know", src: ForAllIKnow, iframe: false, img: ForAllIknowPic, watchOrListen: "Listen", credits: "Writer, Producer, Mixing, Mastering" },
     { title: "Hang Out", src: HangOut, iframe: false, img: HangOutPic, watchOrListen: "Listen", credits: "Co-writer, Producer, Mixing, Mastering" },
+    { title: "A Good Thought", src: AGoodThought, iframe: false, img: AGoodThoughtPic, watchOrListen: "Listen", credits: "Co-writer, Producer, Mixing, Mastering" },
     { title: "Karma", src: Karma, iframe: false, img: KarmaPic, watchOrListen: "Listen", credits: "Writer, Producer, Mixing" },
     { title: "Rift", src: "https://www.youtube.com/watch?v=H0Wj1DL-lyg", iframe: true, img: RiftPic, watchOrListen: "Watch", credits: "Writer, Producer, Mixing" },
-    { title: "Imagine", src: Imagine, iframe: false, img: ImaginePic, watchOrListen: "Listen", credits: "Producer, Mixing, Mastering" },
-    { title: "Big Evil", src: BigEvil, iframe: false, img: BigEvilPic, watchOrListen: "Listen", credits: "Writer, Sound Design, Mixing" },
     { title: "Bed of Thorns", src: BedOfThorns, iframe: false, img: BedOfThornsPic, watchOrListen: "Listen", credits: "Writer, Sound Design, Mixing, Mastering" },
-    { title: "The Finale", src: FartFinale, iframe: false, img: FartFinalePic, watchOrListen: "Listen", credits: "Co-Writer, Music Programming" },
+    { title: "Imagine", src: Imagine, iframe: false, img: ImaginePic, watchOrListen: "Listen", credits: "Producer, Mixing, Mastering" },
     { title: "Happy Latin", src: HappyLatin, iframe: false, img: HappyLatinPic, watchOrListen: "Listen", credits: "Writer, Producer, Mixing, Mastering" },
+    { title: "Big Evil", src: BigEvil, iframe: false, img: BigEvilPic, watchOrListen: "Listen", credits: "Writer, Sound Design, Mixing" },
+
+    { title: "The Finale", src: FartFinale, iframe: false, img: FartFinalePic, watchOrListen: "Listen", credits: "Co-Writer, Music Programming" },
+
 ]
 
 
