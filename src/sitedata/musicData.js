@@ -30,10 +30,15 @@ import Grimm60 from '../assets/ServicesPortfolio/Grimm60.jpg'
 const Grimm60Music = 'https://s3.amazonaws.com/a-dev-public/ms-services-portfolio/Grimm60.mp3'
 import AGoodThoughtPic from '../assets/ServicesPortfolio/AGoodThought.jpg'
 const AGoodThought = 'https://s3.amazonaws.com/a-dev-public/ms-services-portfolio/AGoodThought_v2_turnDownVox_256.mp3'
+const Dopamine = 'https://s3.amazonaws.com/a-dev-public/ms-services-portfolio/DopamineMastering_v6_256.mp3'
+import DopaminePic from '../assets/ServicesPortfolio/DopmaminCover_500px.jpg'
+
 
 export const servicesPortfolio = [
     { title: "60 Second Sampler", src: Grimm60Music, iframe: false, img: Grimm60, watchOrListen: "Listen", credits: "Writer, Producer, Mixing, Mastering" },
+    { title: "Dopamine", src: Dopamine, iframe: false, img: DopaminePic, watchOrListen: "Listen", credits: "Writer, Producer, Mixing, Mastering" },
     { title: "For All I Know", src: ForAllIKnow, iframe: false, img: ForAllIknowPic, watchOrListen: "Listen", credits: "Writer, Producer, Mixing, Mastering" },
+
     { title: "Hang Out", src: HangOut, iframe: false, img: HangOutPic, watchOrListen: "Listen", credits: "Co-writer, Producer, Mixing, Mastering" },
     { title: "A Good Thought", src: AGoodThought, iframe: false, img: AGoodThoughtPic, watchOrListen: "Listen", credits: "Writer, Producer, Mixing, Mastering" },
     { title: "Karma", src: Karma, iframe: false, img: KarmaPic, watchOrListen: "Listen", credits: "Writer, Producer, Mixing" },

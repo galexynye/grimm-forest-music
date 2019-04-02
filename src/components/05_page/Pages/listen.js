@@ -166,7 +166,7 @@ class Services extends React.PureComponent {
                 <WidthWrapper width="100%">
                 </WidthWrapper>
 
-                <GridContainer gTC="1fr 1fr 1fr" gTCS="1fr 1fr" gTCM="1fr 1fr 1fr" gTCL="1fr 1fr 1fr" gridGap="60px 60px" gridGapL="10px 20px">
+                <GridContainer gTC="1fr 1fr 1fr 1fr" gTCS="1fr 1fr" gTCM="1fr 1fr 1fr" gTCL="1fr 1fr 1fr" gridGap="40px 40px" gridGapL="10px 20px">
                     {portfolio}
                 </GridContainer>
             </div>
