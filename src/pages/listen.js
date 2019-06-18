@@ -30,8 +30,6 @@ class Listen extends React.PureComponent {
 
                 </Helmet>
                 <ListenComponent pageData={pageData} />
-
-
             </div>
         )
     }
