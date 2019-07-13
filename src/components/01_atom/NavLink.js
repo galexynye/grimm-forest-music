@@ -6,12 +6,25 @@ import { msTheme } from '../../styles/Theme'
 
 
 
-//TODO: Add Alt style based on Props
-const StandardLinkStyle = styled.div`
+// NOTE: This is imported into the <NavLinks> component to style the "Snow" button
+export const StandardLinkStyle = styled.button`
+    font-size: 100%;
+    font-family: inherit;
+    border: 0;
+    padding: 0;
+    background-color: inherit;
+    color: ${msTheme.colors.text};
+    font-family: ${msTheme.font.headerFont}; 
+      &:hover{
+                text-decoration: none;
+                color: ${msTheme.colors.primary};
+                cursor: pointer;
+            }   
        a{
-           /* font-size: 25px; */
+           /* font-size: 25px; */               
             color: ${msTheme.colors.text};
              /* color: #998C00; */
+           
             font-family: ${msTheme.font.headerFont}; 
             font-weight: 300;    
             &:hover{
@@ -22,24 +35,7 @@ const StandardLinkStyle = styled.div`
 `
 
 
-const AltLinkStyle = styled.div` 
 
-    a{
-        /* border-radius: 50px; */
-        font-family: ${msTheme.font.headerFont};    
-        padding: 3px 20px;
-        /* color: ${msTheme.colors.text};         */
-        color: white;        
-        background-color: ${msTheme.colors.primary};        
-              /* background-color: ${msTheme.colors.primayhighlighter}; */
-        &:hover{
-                text-decoration: none; 
-                /* border-radius: 20px; */
-                /* color:black; */
-                /* background-color: ${msTheme.colors.primarylightest};   */
-            } 
-    }
-`
 
 export class NavLink extends React.Component {
     constructor(props) {
@@ -75,3 +71,31 @@ export class NavLink extends React.Component {
     }
 }
 
+
+
+
+
+
+// const AltLinkStyle = styled.button` 
+//     font-size: 100%;
+//     font-family: inherit;
+//     border: 0;
+//     padding: 0;
+//     background-color: inherit;
+
+//     a{
+//         /* border-radius: 50px; */
+//         font-family: ${msTheme.font.headerFont};    
+//         padding: 3px 20px;
+//         /* color: ${msTheme.colors.text};         */
+//         color: white;        
+//         background-color: ${msTheme.colors.primary};        
+//               /* background-color: ${msTheme.colors.primayhighlighter}; */
+//         &:hover{
+//                 text-decoration: none; 
+//                 /* border-radius: 20px; */
+//                 /* color:black; */
+//                 /* background-color: ${msTheme.colors.primarylightest};   */
+//             } 
+//     }
+// `

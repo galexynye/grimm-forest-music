@@ -5,7 +5,15 @@ import SiteContainer from '../components/05_page/Layout/SiteContainer'
 import IndexPage from '../components/05_page/Pages/index'
 import { pageData } from '../sitedata/PageData/indexData'
 
+import { ResponsivePhoto, WidthWrapper, GridContainer, GridItem } from '../components/00_utilities/Utilities';
+import styled from 'styled-components'
+import HomeStartScreen from '../components/04_template/Home/HomeStartScreen';
 
+
+
+const HomeSection = styled.div`
+
+`
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -40,12 +48,12 @@ export default class Home extends React.Component {
 
 export const pageQuery = graphql`
   query {
-   site {
-    siteMetadata {
-      title    
-    }
-  }
-  
-
-}
+          site {
+        siteMetadata {
+          title
+        }
+        }
+        
+      
+      }
 `

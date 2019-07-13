@@ -17,7 +17,8 @@ export const WidthWrapper = styled.div`
     max-width: 100%;
     margin: ${props => props.margin || 'auto'};     
      @media screen and (max-width: ${props => props.breakPoint ? props.breakPoint + 'px' : msTheme.breakPoints.medium + 'px'}) {
-            width: ${props => props.widthSmall || '100%'};        
+            width: ${props => props.widthSmall || '100%'};  
+            max-width: 100%;      
             margin: ${ props => props.marginSmall ? props.marginSmall : props.margin ? props.margin : 'auto'};
             padding: ${props => props.paddingSmall || '0px'};
      }
@@ -38,14 +39,17 @@ export const FlexboxOrganism = styled.div`
     padding: ${props => props.padding || '0px'};
     margin: ${props => props.margin || '0px'};
     height: ${props => props.height || 'auto'};
-    max-height: ${props => props.maxHeight || 'auto'};
     @media screen and (max-width: ${props => props.breakPoint ? props.breakPoint + 'px' : msTheme.breakPoints.medium + 'px'}) {
-        height: ${props => props.heightSmall || '100%'}
+        height: ${props => props.heightSmall || '100%'};
+        padding: ${props => props.paddingSmall || props.padding || '0px'};
+        margin:  ${props => props.marginSmall || props.margin || '0px'}
     }
 `
 
+
+
 export const GridContainer = styled.div`
-  width: ${props => props.width || '97%'};
+  width: ${props => props.width || '93%'};
   max-width: ${props => props.maxWidth || msTheme.widths.wide};
   margin: ${props => props.margin || '0 auto'} ;  
   display: grid;
@@ -78,13 +82,11 @@ export const GridItem = styled.div`
     grid-column-end: ${props => props.gCE || 'auto'};
     grid-row-start: ${props => props.gRS || 'auto'};
     grid-row-end: ${props => props.gRE || 'auto'}; 
-    order: ${props => props.order || 'auto'};
     ${msTheme.mediaquery().large}{
         grid-column-start: ${props => props.gCSL || 'auto'};
         grid-column-end: ${props => props.gCEL || 'auto'};
         grid-row-start: ${props => props.gRSL || 'auto'};
         grid-row-end: ${props => props.gREL || 'auto'}; 
-        order: ${props => props.orderL ? props.orderL : props.order ? props.order : 'auto'};
 
     }
     ${msTheme.mediaquery().medium}{
@@ -92,7 +94,6 @@ export const GridItem = styled.div`
         grid-column-end: ${props => props.gCEM || 'auto'};
         grid-row-start: ${props => props.gRSM || 'auto'};
         grid-row-end: ${props => props.gREM || 'auto'}; 
-        order: ${props => props.orderM ? props.orderM : props.orderL ? props.orderL : props.order ? props.order : 'auto'};
 
     }
     ${msTheme.mediaquery().small}{
@@ -100,7 +101,6 @@ export const GridItem = styled.div`
         grid-column-end: ${props => props.gCES || 'auto'};
         grid-row-start: ${props => props.gRSS || 'auto'};
         grid-row-end: ${props => props.gRES || 'auto'}; 
-        order: ${props => props.orderS ? props.orderS : props.orderM ? props.orderM : props.orderL ? props.orderL : props.order ? props.order : 'auto'};
 
     }
 `
@@ -116,10 +116,8 @@ export const PaddingWrapper = styled.div`
 
 // ResponsivePhoto - takes src as prop and outputs a responsive photo. extended from the WidthWrapper
 
-const ImageWrapper = styled(WidthWrapper)`
-    margin: ${props => props.margin || 'inherit'};
+const ImageWrapper = styled(WidthWrapper)`    
     img{
-        /* height: ${props => props.height || 'auto'}; */
         max-height: ${props => props.maxHeight || 'auto'};
         max-width: 100%;
         border-radius: ${props => props.borderRadius || '0px'};
@@ -128,9 +126,9 @@ const ImageWrapper = styled(WidthWrapper)`
 
 export class ResponsivePhoto extends React.PureComponent {
     render() {
-        const { src, borderRadius, maxHeight, margin, height } = this.props
+        const { src, borderRadius, maxHeight } = this.props
         return (
-            <ImageWrapper borderRadius={borderRadius} maxHeight={maxHeight} margin={margin} height={height}>
+            <ImageWrapper borderRadius={borderRadius} maxHeight={maxHeight}>
                 <img src={src} />
             </ImageWrapper>
         )

@@ -75,6 +75,31 @@ or for media queries gTCM - medium
 or gTCS - small
 
 
+# The App Provider / Global State
+
+In the `<SiteContainer>` there is the `<SiteContext.Provider>` which gives access to state without the need to pass to components. This is how the German was controlled and how the "Snow" state will be controlled. 
+
+Here's an example, (the noGerman was a local state property)
+
+```
+
+import { SiteContext } from '../05_page/Layout/SiteContainer'; // If needs imported
+
+       {!noGerman && <SiteContext.Consumer>
+                        {context => (
+
+                            <Location>
+                                {({ location }) => {
+                                    // console.log(location)
+                                    return <GermanToggButton onClick={() => context.toggleGerman(location.pathname)}>EN / DE</GermanToggButton>
+                                }}
+                            </Location>
+
+
+                        )}
+                    </SiteContext.Consumer>} 
+```
+
 # Bugs 
  
 Paragraphs text overflow doesn't work. it jsut gets cut off without ellipsis. If I write the paragraph straight into a div with no html it works...fucking shit cunts
@@ -96,7 +121,7 @@ Because the `<MainContainer>` is transformed (or?) fixed on mobile, you cannot p
 
 See the `<SiteContainer>` notes below. All pages are wrapped in the `<SiteContainer>`.
 
-## To create an individual page.
+## To create an individual page. (these are music sequencing notes, this uses a page component in the 05_page that is filled with data, (for german and english if i ever do that again) )
 
 For multiple language capabilities, the pages are constructed from 3 places. 
 1. The .js file inside the pages directory. The place gatsby looks to create pages. In these files are the `<SiteContainer>` any relevant `<Helmet>` data. The guts of the page is from a Page component located in the componenents -> 05_page -> Pages directory. To create pages with multiple languages, there are 2 versions of the page in this folder, with the same page component, but rendering different data.
@@ -128,6 +153,9 @@ Note
 The injectGlobal API was removed and replaced by createGlobalStyle in styled-components v4.
 
 NOTE: Upgrade eventually to using React's context API with the `<SiteContainer>`. See [This artice](https://medium.freecodecamp.org/how-to-develop-your-react-superpowers-with-the-context-api-61e0ab952c02)
+
+
+
 
 ### HeaderPosition
 The default header position is static but on hero pages, such as the main page, it needs absolute positioning. This is a prop that is added to the `<SiteContainer>` when creating a new page. 

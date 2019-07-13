@@ -1,10 +1,9 @@
 export const MainNavLinksData = [
     // { name: 'Home', to: '/', external: false },
     { name: 'About', to: '/about', external: false },
-    { name: 'Services', to: '/services', external: false },
-    { name: 'Listen', to: '/listen', external: false },
+    // { name: 'Services', to: '/services', external: false },
+    { name: 'Hear', to: '/listen', external: false },
     { name: 'Contact', to: '/contact', external: false },
-
 ]
 export const MainNavLinksDataGerman = [
     // { name: 'Home', to: '/', external: false },

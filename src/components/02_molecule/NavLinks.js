@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { msTheme } from '../../styles/Theme'
 import { NavLink } from '../01_atom/NavLink'
+import { SiteContext } from '../05_page/Layout/SiteContainer'
 
 /*
 Component Notes
@@ -12,6 +14,14 @@ Component Notes
 
 */
 
+import { StandardLinkStyle } from '../01_atom/NavLink'
+
+const SnowItem = styled.li`
+    ${msTheme.mediaquery().medium}{
+        display: none;
+    }
+`
+
 export class NavLinks extends React.Component {
     constructor(props) {
         super(props)
@@ -22,6 +32,13 @@ export class NavLinks extends React.Component {
         return (
             <ul onClick={toggleMobileMenu}>
                 {navList}
+                <SnowItem>
+                    <SiteContext.Consumer>
+                        {context => (
+                            <StandardLinkStyle onClick={() => context.toggleSnow()}>Snow</StandardLinkStyle>
+                        )}
+                    </SiteContext.Consumer>
+                </SnowItem>
             </ul>
         )
     }

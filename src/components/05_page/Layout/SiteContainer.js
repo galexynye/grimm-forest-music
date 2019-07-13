@@ -251,12 +251,11 @@ a {
 
 // Context Api Context
 
-const startingState = {
-    german: false,
-}
-
 const startingValue = {
-    state: { german: false },
+    state: {
+        german: false,
+        snowing: true,
+    },
 }
 
 export const SiteContext = React.createContext(startingValue);
@@ -266,9 +265,11 @@ export const SiteContext = React.createContext(startingValue);
 export class SiteProvider extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            german: false
-        }
+        // this.state = {
+        //     german: false,
+        //     snowing: true
+        // }
+        this.state = startingValue.state
     }
     render() {
         return (
@@ -278,9 +279,6 @@ export class SiteProvider extends React.Component {
                     this.setState({
                         german: !this.state.german,
                     })
-
-
-
                     if (location === "/") {
                         navigate("/de/home")
                     } else if (location === "/de/home") {
@@ -294,6 +292,11 @@ export class SiteProvider extends React.Component {
                     }
                     //starts with /de, navigate to the location with /de sliced from it.
                     // otherwise, we want to add it to it, then navigate to the 
+                },
+                toggleSnow: () => {
+                    this.setState({
+                        snowing: !this.state.snowing
+                    })
                 },
                 onloadGerman: (localGerman) => {
                     this.setState({
@@ -389,16 +392,9 @@ class SiteContainer extends React.Component {
                     ]}
 
                 >
-                    {/* <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie|Ubuntu" rel="stylesheet" /> */}
-
-                    {/* <link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet" />
-
-                    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" />
-
-                    <link href="https://fonts.googleapis.com/css?family=Khula:300" rel="stylesheet" /> */}
 
                     <link href="https://fonts.googleapis.com/css?family=Dosis:300|Khula:300" rel="stylesheet" />
-
+                    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
 
                 </Helmet>
@@ -409,7 +405,7 @@ class SiteContainer extends React.Component {
                     <Header toggleMobileMenu={this._toggleMobileMenu} headerPosition={headerPosition} noGerman={noGerman}></Header>
                     {children}
                     <Footer></Footer>
-                    {!noGerman && <SiteContext.Consumer>
+                    {/* {!noGerman && <SiteContext.Consumer>
                         {context => (
 
                             <Location>
@@ -421,7 +417,8 @@ class SiteContainer extends React.Component {
 
 
                         )}
-                    </SiteContext.Consumer>}
+                    </SiteContext.Consumer>} */}
+
                 </MainContainer>
 
 

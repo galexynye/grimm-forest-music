@@ -7,7 +7,7 @@ import { msTheme } from '../../styles/Theme'
 
 const HeaderContainer = styled.header`
     
-    position: ${props => props.headerPosition || 'static'};
+    position: ${props => props.headerPosition || 'fixed'};
     color: white;
     width: 100%;
     z-index: 10;
@@ -20,7 +20,7 @@ const HeaderContainer = styled.header`
 const HeaderStyle = styled.div`
     position: relative;
     display: flex;
-    height: ${msTheme.heights.header};
+    /* height: ${msTheme.heights.header}; */
     justify-content: flex-start;
     align-items: center;
     margin: 10px auto;
@@ -63,9 +63,9 @@ export class Header extends React.Component {
             <HeaderContainer headerPosition={this.props.headerPosition}>
                 <HeaderStyle>
                     <MobileToggle toggleMobileMenu={this.props.toggleMobileMenu} />
-                    <HomeLinkLogoWrapper>
+                    {/* <HomeLinkLogoWrapper>
                         <HomeLinkLogo noGerman={noGerman} />
-                    </HomeLinkLogoWrapper>
+                    </HomeLinkLogoWrapper> */}
 
                     <NavMain margin="0px 20px" linkMargin="0px 0px 0px 30px" />
                 </HeaderStyle>

@@ -8,15 +8,22 @@ import { SiteContext } from '../05_page/Layout/SiteContainer';
 // Passes down Main Nav Data 
 // Style for grouping the main nav links
 const NavStyle = styled.nav`
-    ul {
+    position: fixed;
+    bottom: 55px;
+    left: calc(50% - 335px);
+    ul {        
         display:flex;
         flex-flow: ${props => props.flow ? props.flow : 'row'};
         justify-content: flex-end;
         margin: ${props => props.margin || '0px'};
+       
         padding: 0px;
-        list-style-type: none;
+        list-style-type: none;      
         li {
-            margin: ${props => props.margin ? props.margin : '0px 0px 0px 45px'};        
+            margin: ${props => props.margin ? props.margin : '0px 0px 0px 45px'};
+             border: 1px solid white;
+             border-radius: 2px;
+             padding: 10px 10px 3px 10px;        
             ${msTheme.mediaquery().large}{
                     margin: ${props => props.marginSmall ? props.marginSmall : '0px 0px 0px 35px'};
                 }
@@ -25,6 +32,7 @@ const NavStyle = styled.nav`
     }
     ${msTheme.mediaquery().medium}{
         display: ${props => props.showSmall ? 'block' : 'none'};
+        position: static;
     }
     
 `

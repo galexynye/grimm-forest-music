@@ -1,6 +1,6 @@
 export const msTheme = {
     colors: {
-        bgColor: 'rgb(25,25,25)',
+        bgColor: '#070707',
         text: 'white', // '#373737'
         textlight: '#6d6d6d',
         primary: '#41b883', // Green
@@ -65,7 +65,8 @@ export const msTheme = {
         // headerFont: `'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', sans- serif,`
         // headerFont: "'Reenie Beanie', sans-serif"
         // headerFont: 'Open Sans'
-        headerFont: 'Dosis'
+        // headerFont: 'Dosis'
+        headerFont: "'Press Start 2P', sans-serif"
         // bodyFont: 'Khula',
     },
     fontSize: {

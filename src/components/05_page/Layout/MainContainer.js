@@ -17,8 +17,9 @@ const MainContainerStyle = styled.div`
     min-height: 100vh;
     position: ${props => props.mobileMenuOpen ? 'fixed' : 'relative'};
     overflow: ${props => props.mobileMenuOpen ? 'hidden' : 'auto'};    
-    box-shadow: ${props => props.mobileMenuOpen ? `5px 10px 6px 5px #700bea` : 'none'};   
+    box-shadow: ${props => props.mobileMenuOpen ? `5px 10px 6px 5px white` : 'none'};   
     width: ${props => props.mobileMenuOpen ? '100%' : '100%'};
+    padding: 0px;
     ${msTheme.mediaquery().mediumMin}{
         box-shadow: none;
     }

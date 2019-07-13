@@ -12,7 +12,7 @@ import { ButtonCTA } from '../01_atom/ButtonCTA';
 export const FooterStyle = styled.footer`
     /* background-color: ${msTheme.colors.text}; */
     padding: 20px 0px;
-    background-color: rgb(30,30,30);
+    background-color: #070707;
     p{        
         margin:0px 0px 15px 0px;
         color: ${msTheme.colors.textlight};
@@ -29,7 +29,7 @@ export const Copyright = styled.div``
 export const Footer = props => {
     return (
         <FooterStyle>
-            <FlexboxOrganism><p >©2019 Grimm Forest Music</p></FlexboxOrganism>
+            <FlexboxOrganism><p >© 2019 Grimm Forest Music</p></FlexboxOrganism>
 
 
         </FooterStyle >
