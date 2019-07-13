@@ -19,14 +19,15 @@ export const ButtonCTAStyle = styled.button`
   color: ${props => props.color || msTheme.colors.text};
   align-self: flex-end;
   background-color: ${props => props.bgColor || 'white'};
-
   ${msTheme.mediaquery().medium}{
     padding: ${props => props.paddingSmall || msTheme.utilities().inputAndButtonShare.paddingSmall};
     display: ${props => props.displayM || 'inline-block'};
   }
   &:hover{
+   
     text-decoration: none;
-    cursor: pointer;
+    cursor: pointer;    
+    background-color: ${msTheme.colors.primary};  
   }
 
 `

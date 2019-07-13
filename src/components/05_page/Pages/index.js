@@ -7,6 +7,8 @@ import { ButtonCTA } from '../../01_atom/ButtonCTA';
 import SnowFlake from '../../../assets/GrimmGraphics/snowflake_100x100.png'
 import HomeStartScreen from '../../04_template/Home/HomeStartScreen';
 import { SiteContext } from '../Layout/SiteContainer'
+import { AboutSection } from '../../04_template/Home/AboutSection';
+import { MusicSection } from '../../04_template/Home/MusicSection';
 
 
 const HomeContainer = styled.div`
@@ -61,6 +63,8 @@ export default class Home extends React.Component {
         </SiteContext.Consumer>
         {/* {this.state.snowing && <Snow />} */}
         <HomeStartScreen />
+        <AboutSection />
+        <MusicSection />
 
       </HomeContainer>
 

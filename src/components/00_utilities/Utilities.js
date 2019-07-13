@@ -121,14 +121,15 @@ const ImageWrapper = styled(WidthWrapper)`
         max-height: ${props => props.maxHeight || 'auto'};
         max-width: 100%;
         border-radius: ${props => props.borderRadius || '0px'};
+        border: ${props => props.border || 'none'};
     }
 `
 
 export class ResponsivePhoto extends React.PureComponent {
     render() {
-        const { src, borderRadius, maxHeight } = this.props
+        const { src, borderRadius, maxHeight, border } = this.props
         return (
-            <ImageWrapper borderRadius={borderRadius} maxHeight={maxHeight}>
+            <ImageWrapper borderRadius={borderRadius} maxHeight={maxHeight} border={border}>
                 <img src={src} />
             </ImageWrapper>
         )

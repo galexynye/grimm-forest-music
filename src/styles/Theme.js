@@ -3,7 +3,8 @@ export const msTheme = {
         bgColor: '#070707',
         text: 'white', // '#373737'
         textlight: '#6d6d6d',
-        primary: '#41b883', // Green
+
+        primary: '#36FF74', // Green primary: '#41b883', 
         primayhighlighter: '#C6A6F2',
         primarylightest: '#AF7AF0',
         primarylight: '#9753E9',

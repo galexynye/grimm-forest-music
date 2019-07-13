@@ -16,14 +16,17 @@ const NavStyle = styled.nav`
         flex-flow: ${props => props.flow ? props.flow : 'row'};
         justify-content: flex-end;
         margin: ${props => props.margin || '0px'};
-       
+   
         padding: 0px;
         list-style-type: none;      
+        /* All this styling should be moved to the NavLink ... and it Should Come from Button CTA */
         li {
             margin: ${props => props.margin ? props.margin : '0px 0px 0px 45px'};
-             border: 1px solid white;
+            
+             /* border: 1px solid white;
              border-radius: 2px;
-             padding: 10px 10px 3px 10px;        
+             padding: 10px 10px 3px 14px;     */
+                
             ${msTheme.mediaquery().large}{
                     margin: ${props => props.marginSmall ? props.marginSmall : '0px 0px 0px 35px'};
                 }

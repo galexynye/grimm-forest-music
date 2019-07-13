@@ -12,6 +12,7 @@ export const StandardLinkStyle = styled.button`
     font-family: inherit;
     border: 0;
     padding: 0;
+    /* background-color: ${msTheme.colors.bgColor}; */
     background-color: inherit;
     color: ${msTheme.colors.text};
     font-family: ${msTheme.font.headerFont}; 
