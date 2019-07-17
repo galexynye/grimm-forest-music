@@ -38,16 +38,16 @@ class Services extends React.PureComponent {
     }
 }
 
-export default Services
+// export default Services
 
-export const pageQuery = graphql`
-  query {
-   site {
-    siteMetadata {
-      title    
-    }
-  }
-  
+// export const pageQuery = graphql`
+//   query {
+//    site {
+//     siteMetadata {
+//       title    
+//     }
+//   }
 
-}
-`
+
+// }
+// `

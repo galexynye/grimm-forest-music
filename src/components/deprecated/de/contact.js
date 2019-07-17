@@ -31,14 +31,14 @@ export default class contact extends PureComponent {
 
 
 
-export const pageQuery = graphql`
-  query {
-   site {
-    siteMetadata {
-      title    
-    }
-  }
-  
+// export const pageQuery = graphql`
+//   query {
+//    site {
+//     siteMetadata {
+//       title    
+//     }
+//   }
 
-}
-`
+
+// }
+// `

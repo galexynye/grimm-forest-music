@@ -39,14 +39,14 @@ class Listen extends React.PureComponent {
 
 export default Listen
 
-export const pageQuery = graphql`
-  query {
-   site {
-    siteMetadata {
-      title    
-    }
-  }
-  
+// export const pageQuery = graphql`
+//   query {
+//    site {
+//     siteMetadata {
+//       title    
+//     }
+//   }
 
-}
-`
+
+// }
+// `

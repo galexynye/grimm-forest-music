@@ -37,14 +37,14 @@ export default class Home extends React.Component {
 }
 
 
-export const pageQuery = graphql`
-  query {
-   site {
-    siteMetadata {
-      title    
-    }
-  }
-  
+// export const pageQuery = graphql`
+//   query {
+//    site {
+//     siteMetadata {
+//       title    
+//     }
+//   }
 
-}
-`
+
+// }
+// `
