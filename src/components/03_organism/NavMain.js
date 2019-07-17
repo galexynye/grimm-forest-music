@@ -5,32 +5,34 @@ import { MainNavLinksData, MainNavLinksDataGerman } from '../../sitedata/navdata
 import { msTheme } from '../../styles/Theme'
 import { SiteContext } from '../05_page/Layout/SiteContainer';
 
-// Passes down Main Nav Data 
+
 // Style for grouping the main nav links
-const NavStyle = styled.nav`
+// In Grimm Forest, every page has it's own separate fixed menu at the bottom to navigate the page itself.
+// All pages that are not the index page need a "Home Button" (it's already in the mobile sidebare)
+// The styling and setup for the SidebarMobile nav is in the "SideBarMobileNav" component
+export const NavStyle = styled.nav`
     position: fixed;
-    bottom: 55px;
-    left: calc(50% - 335px);
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
     ul {        
         display:flex;
         flex-flow: ${props => props.flow ? props.flow : 'row'};
         justify-content: flex-end;
-        margin: ${props => props.margin || '0px'};
-   
+        margin: ${props => props.margin || '0px'};        
         padding: 0px;
-        list-style-type: none;      
-        /* All this styling should be moved to the NavLink ... and it Should Come from Button CTA */
-        li {
-            margin: ${props => props.margin ? props.margin : '0px 0px 0px 45px'};
-            
-             /* border: 1px solid white;
-             border-radius: 2px;
-             padding: 10px 10px 3px 14px;     */
-                
-            ${msTheme.mediaquery().large}{
-                    margin: ${props => props.marginSmall ? props.marginSmall : '0px 0px 0px 35px'};
-                }
+        list-style-type: none;
+        li{
+            margin: 0px 15px;
         }
+        /* & + & {
+            margin: 0px 0px 0px 45px;                                 
+        }              */
+        /* li {
+            margin: 0px;
+            padding: 0px;
+        } */
   
     }
     ${msTheme.mediaquery().medium}{
@@ -40,15 +42,14 @@ const NavStyle = styled.nav`
     
 `
 
-
 export const NavMain = (props) => {
     return (
-        <NavStyle flow={props.flow} margin={props.linksMargin} marginSmall={props.marginSmall} showSmall={props.showSmall}>
+        <NavStyle navData={props.navData} flow={props.flow} margin={props.linksMargin} marginSmall={props.marginSmall} showSmall={props.showSmall}>
             <SiteContext.Consumer>
                 {context => (
                     <React.Fragment>
-                        {!context.state.german && <NavLinks altStyleAllowed={true} links={MainNavLinksData} toggleMobileMenu={props.toggleMobileMenu} />}
-                        {context.state.german && <NavLinks altStyleAllowed={true} links={MainNavLinksDataGerman} toggleMobileMenu={props.toggleMobileMenu} />}
+                        {!context.state.german && <NavLinks links={props.navData} snowButton={props.snowButton} altStyleAllowed={true} toggleMobileMenu={props.toggleMobileMenu} />}
+                        {context.state.german && <NavLinks altStyleAllowed={true} links={props.navDataGerman} toggleMobileMenu={props.toggleMobileMenu} />}
                     </React.Fragment>
                 )}
             </SiteContext.Consumer>

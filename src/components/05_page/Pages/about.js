@@ -1,77 +1,132 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { msTheme } from '../../../styles/Theme'
+
 import { PageTitle } from '../../01_atom/PageTitle'
 import { GridContainer, ResponsivePhoto, WidthWrapper, FlexboxOrganism, GridItem } from '../../00_utilities/Utilities';
 import Millenia from '../../../assets/GrimmStudioPics/Millenia.jpg'
 import Saywell from '../../../assets/SaywellPics/SaywellLookingDown.jpg'
 import Footpedal from '../../../assets/GrimmStudioPics/FootPedal.jpg'
 import { ButtonCTA } from '../../01_atom/ButtonCTA';
-
+import { FullHeightSection } from '../../01_atom/FullHeightSection'
+import { ArticleContainer } from '../ArticleContainer'
+import Apollo from '../../../assets/GrimmStudioPics/ApolloCool.jpg'
+import BioPic from '../../../assets/SaywellPics/Freelance_Photos.jpg'
 
 class About extends React.Component {
     render() {
         const { pageData } = this.props
         return (
-            <div>
-                <PageTitle text={pageData.pageTitle.text} description={pageData.pageTitle.description} ></PageTitle>
-                <GridContainer gTC="1fr 1fr" gridGap="140px 80px" gridGapM="40px" gTCM="1fr" margin="30px auto">
-                    <GridItem orderM="2" alignSelf="center">
-                        {/* <img src={Millenia} style={{ maxWidth: "100%", borderRadius: "40px" }} /> */}
-                        <img src={Millenia} style={{ maxWidth: "100%" }} />
-                    </GridItem>
-                    <GridItem orderM="1" alignSelf="center">
-
-                        <div  >
-                            <h2>{pageData.story.h2}</h2>
-                            <p>{pageData.story.p1}</p>
-                            <WidthWrapper width="250px" margin="0px">
-                                <ButtonCTA text={pageData.story.button.text} to={pageData.story.button.to} bgColor={msTheme.colors.primary} />
-                            </WidthWrapper>
-                        </div>
-
-                    </GridItem>
-
-                    <GridItem orderM="3" alignSelf="center">
-
-
-                        <div>
-                            <h2>{pageData.saywell.h2}</h2>
-                            <p>{pageData.saywell.p1}</p>
-                        </div>
-
-                        {/* </FlexboxOrganism> */}
-                    </GridItem>
-                    <GridItem orderM="4" alignSelf="center">
-                        {/* <img src={Saywell} style={{ maxWidth: "100%", borderRadius: "40px" }} /> */}
-                        <img src={Saywell} style={{ maxWidth: "100%" }} />
-                    </GridItem>
+            <React.Fragment>
 
 
 
-                    <GridItem orderM="6" alignSelf="center">
-                        {/* <img src={Footpedal} style={{ maxWidth: "100%", borderRadius: "40px" }} /> */}
-                        <img src={Footpedal} style={{ maxWidth: "100%" }} />
-                    </GridItem>
+                {/* <ArticleContainer> */}
+                <section>
+                    <FullHeightSection>
+                        <PageTitle text="About" description={pageData.pageTitle.description}></PageTitle>
+                    </FullHeightSection>
+                </section>
 
-                    <GridItem orderM="5" alignSelf="center">
+                <section id="philosophy">
+                    <FullHeightSection>
+
+                        <GridContainer gTC="1fr 1fr" gridGap="90px" gridGapL="20px" gTCM="1fr">
+                            <FlexboxOrganism margin="30px 0px" marginSmall="0px">
+                                <div>
+                                    <h2 >Philosophy</h2>
+                                    <p>Thanks for checking out Grimm Forest Music and Sound, my name is Alex Nye.</p>
+                                    <p>In a word, "cohesion" is what I love and aspire to in creative work.
+                                    All the major parts and minor details coming together creating an experience of total immersion.</p>
+                                </div>
+                            </FlexboxOrganism>
+
+                            <GridItem alignSelf="center">
+                                <ResponsivePhoto src={Apollo} />
+                            </GridItem>
+                        </GridContainer>
+                    </FullHeightSection>
+                </section>
+
+                <section id="now">
+                    <FullHeightSection>
+                        <GridContainer gTC="1fr 1fr" gridGap="90px" gridGapL="20px" gTCM="1fr" >
+                            {/* <ResponsiveIframe><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/814433031&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></ResponsiveIframe> */}
+                            <GridItem orderL="2" alignSelf="center">
+                                <ResponsivePhoto src={Millenia} />
+                            </GridItem>
+                            <GridItem orderL="1" alignSelf="center">
+                                <FlexboxOrganism>
+                                    <div>
+                                        <h2 >Now</h2>
+                                        <p>Updated: July 15th, 2019</p>
+                                        <p>Big personal news, my wife recently received her visitor Visa after 4 years of being locked out of 'Merica.</p>
+                                        <p>I haven't been back to the States for nearly 2 years myself, so we can finally talk about visiting.</p>
+                                        <p>Currently I'm working on an album of Trailer Music and the latest <a href="https://saywell.bandcamp.com/" target="_blank">Saywell</a> song.</p>
+                                    </div>
+                                    {/* <p>Grimm Forest Music and Sound is the studio of composer Alex Nye offering custom music and sound design for movies and games.</p> */}
+                                </FlexboxOrganism>
+                            </GridItem>
+                        </GridContainer>
+                    </FullHeightSection>
+                </section>
+                <section id="bio">
+                    <FullHeightSection>
+                        <GridContainer gTC="1fr 1fr" gridGap="40px" gridGapL="20px" gTCM="1fr" margin="20px auto">
+                            {/* <ResponsiveIframe><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/814433031&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></ResponsiveIframe> */}
 
 
-                        <div>
-                            <h2>{pageData.offer.h2}</h2>
-                            <p>{pageData.offer.p1}</p>
-                            <WidthWrapper width="250px" margin="0px">
-                                <ButtonCTA to={pageData.offer.button.to} text={pageData.offer.button.text} bgColor={msTheme.colors.primary} />
-                            </WidthWrapper>
-                        </div>
+
+                            <FlexboxOrganism>
+                                <div>
+                                    <h2 >Bio</h2>
+                                    <p>Do I like long walks on the beach? No, I love em. Love all types of walking in fact. I'm learning programming for fun and spend a lot of time with my family.</p>
+                                    {/* <p>Used to do them all the time when I was living in Los Angeles working on these <a href="https://www.imdb.com/name/nm5637976/" target="_blank">shows and movies.</a></p> */}
+                                    <p className="mB0">Bios are usually pretty boring (mine included) and if you're interested in the quality of my work check out <Link to="/#music">my music</Link>. If you want to know where I come from and where I've been, there's a bulleted run down of my life here to get you up to speed.</p>
+
+                                </div>
+                                {/* <p>Grimm Forest Music and Sound is the studio of composer Alex Nye offering custom music and sound design for movies and games.</p> */}
+                            </FlexboxOrganism>
+
+                            <GridItem alignSelf='center'>
+                                <ResponsivePhoto src={BioPic} borderRadius="0px" margin="0px 0px 20px 0px" maxWidth="300px" />
+                                {/* <h3>Contact</h3>
+                                <p>Happy to hear from you if you want to say hi or are interested in working together, my contact info is <Link to="/#contact">here</Link>.</p>
+                                <h3>Music</h3>
+
+                                <p>If you haven't already you can check out <Link to="/#music">my music here</Link>.</p> */}
+                            </GridItem>
+                            <GridItem>
+                                <h3>Life List</h3>
+                                {/* <h3 >Bio List</h3> */}
+                                <ul>
+                                    <li>1990: Born in Cleveland Ohio</li>
+                                    <li>2008: All-American Runner 4x800 and 4xMile</li>
+                                    <li>2011: Graduated Berklee College of Music</li>
+                                    <li>2012: LA <a href="https://www.imdb.com/name/nm5637976/" target="_blank">Doing Film Music</a></li>
+                                    <li>2016: Married a German</li>
+                                    <li>2017: Moved to the Black Forest of Germany founded <a href="https://www.musicsequencing.com" target="_blank">MusicSequencing.com</a></li>
+
+                                    <li>2017: Kid Born</li>
+                                    <li>2018: Grimm Forest Music Founded</li>
+                                    <li>2019: <a href="https://saywell.bandcamp.com/" target="_blank">Saywell Project</a>: Releasing 1 song a Month for the Year</li>
+                                </ul>
+                            </GridItem>
+
+                            <GridItem>
+                                <h3>Contact</h3>
+                                <p>Happy to hear from you if you want to say hi or are interested in working together, my contact info is <Link to="/#contact">here</Link>.</p>
+                                <h3>Music</h3>
+                                <p>If you haven't already you can check out <Link to="/#music">my music here</Link>.</p>
+                            </GridItem>
+
+                        </GridContainer>
+                    </FullHeightSection>
+                </section>
 
 
-                    </GridItem>
-                    {/* Google map */}
-                    {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2669.5148620284517!2d7.85202231586921!3d48.00376206845021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911c845da56c13%3A0x669f9aa373e8d76d!2sTennenbacher+Str.+3%2C+79106+Freiburg+im+Breisgau!5e0!3m2!1sen!2sde!4v1552392983047" width="600" height="450" frameborder="0" allowfullscreen></iframe> */}
 
-                </GridContainer>
-            </div>
-
+            </React.Fragment>
         )
     }
 }

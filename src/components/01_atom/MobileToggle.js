@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { msTheme } from '../../styles/Theme'
 
 const MobileToggleButton = styled.button`
+position: fixed;
   border: none;  
   margin: 0px 0px 0px 18px;
   padding: 0px;

@@ -9,6 +9,8 @@ import HomeStartScreen from '../../04_template/Home/HomeStartScreen';
 import { SiteContext } from '../Layout/SiteContainer'
 import { AboutSection } from '../../04_template/Home/AboutSection';
 import { MusicSection } from '../../04_template/Home/MusicSection';
+import { ContactSection } from '../../04_template/Home/ContactSection';
+
 
 
 const HomeContainer = styled.div`
@@ -53,18 +55,21 @@ export default class Home extends React.Component {
     return (
       <HomeContainer>
         {/* This state should be from the React Context */}
-        <SiteContext.Consumer>
+        {/* <SiteContext.Consumer>
           {context => (
             <React.Fragment>
               {context.state.snowing && <Snow />}
             </React.Fragment>
 
           )}
-        </SiteContext.Consumer>
+
+        </SiteContext.Consumer> */}
+        {/* <NavMainIndexPage /> */}
         {/* {this.state.snowing && <Snow />} */}
         <HomeStartScreen />
         <AboutSection />
         <MusicSection />
+        <ContactSection />
 
       </HomeContainer>
 

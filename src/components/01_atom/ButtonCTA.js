@@ -9,29 +9,62 @@ import { Link } from 'gatsby'
 
 export const ButtonCTAStyle = styled.button`
   margin: ${props => props.margin || "0px 0px 15px 0px"};
+  /* padding: ${props => props.bgImg ? "0px" : props.padding || msTheme.utilities().inputAndButtonShare.padding}; */
   padding: ${props => props.padding || msTheme.utilities().inputAndButtonShare.padding};
   border: ${props => props.border || msTheme.utilities().inputAndButtonShare.border};
   border-radius: ${props => props.borderRadius || msTheme.utilities().inputAndButtonShare.borderRadius};
-  font-family: ${msTheme.font.headerFont};
+  font-family: ${msTheme.font.buttonFont};
   font-size: 19px;
+ 
+  /* background-image: url(${props => props.bgImg || 'none'});  
+  background-size: cover; */
+  box-shadow: 0px 0px 2px 0px white;
+  img {
+    height: 19px;
+    margin-bottom: -3px;
+  }
   width: 100%; 
   max-width: 100%;
-  color: ${props => props.color || msTheme.colors.text};
+  /* color: ${props => props.color || msTheme.colors.text}; */
+  color: ${props => props.color || 'white'};
   align-self: flex-end;
-  background-color: ${props => props.bgColor || 'white'};
+
+  /* background-color: ${props => props.bgColor || msTheme.colors.primary}; */
+  background-color: ${props => props.bgColor || msTheme.colors.bgColor};
+  /* background-color: ${props => props.bgColor || 'rgb(255,255,255, .2)'}; */
   ${msTheme.mediaquery().medium}{
     padding: ${props => props.paddingSmall || msTheme.utilities().inputAndButtonShare.paddingSmall};
     display: ${props => props.displayM || 'inline-block'};
   }
   &:hover{
-   
+    /* color: white; */
+    /* color: black; */
     text-decoration: none;
-    cursor: pointer;    
-    background-color: ${msTheme.colors.primary};  
-  }
-
+      
+    /* background-image: url(${props => props.bgImgHover || props.bgImage || 'none'});   */
+    cursor: pointer;        
+    /* background-color: ${msTheme.colors.primary};   */
+    /* background-color: ${msTheme.colors.bgColor};   */
+    box-shadow: 0px 0px 7px 0px white;
+    /* background-color: white;   */
+    /* background-color: rgb(255,255,255,.01);   */
+  }   
 `
 
+const BGImageWrapper = styled.div`
+  padding: 12px;
+  background-image: url(${props => props.bgImg || 'none'});  
+  background-size: cover;
+  
+  &:hover{
+     background-image: url(${props => props.bgImgHover || props.bgImage || 'none'});  
+  }
+`
+
+
+
+
+// ButtonCTA can return an external link, an internal gatsby link, or call a function
 
 export class ButtonCTA extends React.PureComponent {
   constructor(props) {
@@ -40,13 +73,14 @@ export class ButtonCTA extends React.PureComponent {
   }
 
   render() {
-    const { _handleClick, color, bgColor, text, width, margin, padding, href, to, borderRadius, displayM } = this.props
+    const { _handleClick, color, img, bgImg, bgImgHover, bgColor, text, width, margin, padding, href, to, borderRadius, displayM } = this.props
 
     if (href) {
       return (
         <a href={href}>
-          <ButtonCTAStyle bgColor={bgColor} color={color} width={width} margin={margin} padding={padding} borderRadius={borderRadius} displayM={displayM}>
-            {text}
+          <ButtonCTAStyle bgImgHover={bgImgHover} bgImg={bgImg} bgColor={bgColor} color={color} width={width} margin={margin} padding={padding} borderRadius={borderRadius} displayM={displayM}>
+            {/* // eslint-disable-next-line  */}
+            {img ? <img src={img} /> : bgImg ? <BGImageWrapper bgImgHover={bgImgHover} bgImg={bgImg} /> : text}
           </ButtonCTAStyle>
         </a>
       )
@@ -54,15 +88,15 @@ export class ButtonCTA extends React.PureComponent {
     if (to) {
       return (
         <Link to={to}>
-          <ButtonCTAStyle bgColor={bgColor} color={color} width={width} margin={margin} padding={padding} borderRadius={borderRadius} displayM={displayM}>
-            {text}
+          <ButtonCTAStyle bgImgHover={bgImgHover} bgImg={bgImg} bgColor={bgColor} color={color} width={width} margin={margin} padding={padding} borderRadius={borderRadius} displayM={displayM}>
+            {img ? <img src={img} /> : bgImg ? <BGImageWrapper bgImgHover={bgImgHover} bgImg={bgImg} /> : text}
           </ButtonCTAStyle>
         </Link>
       )
     }
     return (
-      <ButtonCTAStyle onClick={_handleClick} bgColor={bgColor} color={color} width={width} margin={margin} padding={padding} borderRadius={borderRadius} displayM={displayM}>
-        {text}
+      <ButtonCTAStyle bgImgHover={bgImgHover} bgImg={bgImg} onClick={_handleClick} bgColor={bgColor} color={color} width={width} margin={margin} padding={padding} borderRadius={borderRadius} displayM={displayM}>
+        {img ? <img src={img} /> : bgImg ? <BGImageWrapper bgImgHover={bgImgHover} bgImg={bgImg} /> : text}
       </ButtonCTAStyle>
     )
   }

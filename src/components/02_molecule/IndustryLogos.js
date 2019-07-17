@@ -8,25 +8,31 @@ import MGM from '../../assets/IndustryGraphics/MGM_Holdings_logo.png'
 import Sony from '../../assets/IndustryGraphics/Sony-Classical-Logo.svg.png'
 
 const IndustryContainer = styled.div`
-    background-color: white;
+    background-color: rgb(255,255,255);
+    border-radius: 3px;
+    margin-bottom: 30px;
+    /* width: 100vw; */
 `
 
 const IndustryWrapper = styled.div`
     display: flex;
     max-width: ${msTheme.widths.wide};
     margin: auto;
-    flex-flow: row; 
-    background-color: white;
+    flex-flow: row;     
     justify-content: space-around;
     align-items: center;
-    height: 110px;
-    padding-bottom: 20px;
+    height: 70px;
+    padding: 5px;
+
     img {
-        /* max-height: 100px; */
-        width: 100px;
+        padding: 10px;
+        width: 50px;
+        /* background-color:white; */
+        border-radius: 5px;
+        /* border-radius: 50%; */
     }
     ${msTheme.mediaquery().medium}{
-        height: 100px;
+        height: 50px;
         img{
             width: 50px;
         }
@@ -38,13 +44,15 @@ const IndustryWrapper = styled.div`
 export function IndustryLogos() {
     return (
         <IndustryContainer>
-            <p className="center mB0 headerFont primary pT20" >Heard on</p>
+
             <IndustryWrapper>
+                {/* <p className="center headerFont primary" >Heard on</p> */}
                 <img src={Amazon} />
                 <img src={Fox} />
                 <img src={Sony} />
                 <img src={MGM} />
             </IndustryWrapper>
+
         </IndustryContainer>
     )
 }

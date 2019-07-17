@@ -17,6 +17,7 @@ const HomeLinkStyle = styled.div`
     max-width: 100%;
     height: ${msTheme.heights.header};
     margin-top: 3px;
+    margin-bottom: 20px;
     ${msTheme.mediaquery().medium}{
         margin-top: 4px;
          height: ${msTheme.heights.headerSmall};

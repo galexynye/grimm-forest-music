@@ -9,7 +9,12 @@ import { reset } from '../../../styles/CSSReset'
 import { MainContainer } from './MainContainer'
 import { Header } from '../../04_template/Header'
 import { Footer } from '../../04_template/Footer'
-import { SidebarMobileNav } from '../../04_template/SideBarMobileNav'
+import { Snow } from '../../01_atom/Snow'
+
+// Nav Menu Imports
+import { MainNavData } from '../../../sitedata/navdata'
+import { SidebarMobileNav } from '../../03_organism/SideBarMobileNav'
+import { NavMain } from '../../03_organism/NavMain'
 
 import favicon from '../../../assets/GrimmGraphics/grimmfavicon180.png'
 
@@ -28,6 +33,7 @@ body{
     background-color: ${msTheme.colors.bgColor};
     box-sizing: border-box;
     font-family: ${msTheme.font.bodyFont};
+    word-wrap: break-word;
 }
 
 h1 {
@@ -35,7 +41,7 @@ h1 {
 	font-family: ${msTheme.font.headerFont}, Arial, Helvetica, sans-serif;
 	/* font-size: 94px; */
 	font-size: 60px;
-	font-weight: 300;
+	font-weight: 100;
 	letter-spacing: -3px;
 	/* line-height: 87px; */
 	line-height: 53px;
@@ -53,11 +59,13 @@ h2 {
     color: ${msTheme.colors.text};
 	font-family: ${msTheme.font.headerFont}, Arial, Helvetica, sans-serif;
 	font-size: 45px;
-	font-weight: 600;
+	font-weight: 100;
 	letter-spacing: -1px;
 	line-height: 39px;
 	margin-bottom: 20px;
     margin-top: 80px;
+    max-width: 100vw;
+    word-wrap: break-word !important;
 	/* text-transform: uppercase; */
     :first-child{
         margin-top: 10px;
@@ -69,6 +77,7 @@ h2 {
  @media screen and (max-width: ${msTheme.breakPoints.medium + "px"} ) {
      h2{
          padding-top: 5px;
+         font-size: 25px;
      }
  }
 
@@ -90,12 +99,29 @@ h3 {
 p {
     color: ${msTheme.colors.text};
 	font-family: ${msTheme.font.bodyFont}, Arial, Helvetica, sans-serif;
-	/* font-family:  Arial, Helvetica, sans-serif; */
+    /* font-family: ${msTheme.font.headerFont}, Arial, Helvetica, sans-serif; */
+	/* font-family:  Arial, Helvetica, sans-serif; */    
 	font-size: 19px;
-	font-weight: 300;
+     word-wrap: break-word !important;
+	/* font-weight: 100; */
 	line-height: 27px;
 	margin-bottom: 27px;    
 }
+
+ @media screen and (max-width: ${msTheme.breakPoints.medium + "px"} ) {
+     p{
+         font-size:14px;
+         line-height: 18px;
+         max-width: 95vw;
+     }
+     li {
+        font-size:14px;
+         line-height: 18px;
+         max-width: 95vw;
+    
+}
+ }
+
 
 ol, ul {
     padding-left: 19px;
@@ -117,6 +143,13 @@ li {
     font-size: 19px;
     line-height: 27px;
     margin: 0px 0px 10px 5px;
+}
+ @media screen and (max-width: ${msTheme.breakPoints.medium + "px"} ) {
+li{
+    font-size: 14px;
+    line-height: 18px;    
+}
+
 }
 
 a {
@@ -251,25 +284,22 @@ a {
 
 // Context Api Context
 
-const startingValue = {
+const startingValues = {
     state: {
         german: false,
         snowing: true,
+        showHomeTrailer: false,
     },
 }
 
-export const SiteContext = React.createContext(startingValue);
+export const SiteContext = React.createContext(startingValues);
 
 // Provider component. Global State
 
 export class SiteProvider extends React.Component {
     constructor(props) {
         super(props)
-        // this.state = {
-        //     german: false,
-        //     snowing: true
-        // }
-        this.state = startingValue.state
+        this.state = startingValues.state
     }
     render() {
         return (
@@ -301,6 +331,11 @@ export class SiteProvider extends React.Component {
                 onloadGerman: (localGerman) => {
                     this.setState({
                         german: localGerman
+                    })
+                },
+                _toggleShowHomeTrailer: () => {
+                    this.setState({
+                        showHomeTrailer: !this.state.showHomeTrailer
                     })
                 }
             }}>
@@ -371,17 +406,8 @@ class SiteContainer extends React.Component {
     render() {
         const { children, headerPosition, noGerman } = this.props
         return (
-            // From The SiteContext
             <React.Fragment>
-
                 <Helmet
-                    // Search console verification
-                    // meta={[
-                    //     {
-                    //         name: 'google-site-verification',
-                    //         content: 'ApEgiydr2XV738hMqiDL6JyWjg0Cq5ybbWmQrnDHq9c',
-                    //     },
-                    // ]}
                     link={[
                         {
                             rel: 'shortcut icon',
@@ -392,20 +418,51 @@ class SiteContainer extends React.Component {
                     ]}
 
                 >
-
                     <link href="https://fonts.googleapis.com/css?family=Dosis:300|Khula:300" rel="stylesheet" />
                     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
-
-
                 </Helmet>
                 <GlobalStyle />
+                {/* Returns the Menu depending on the Page */}
+                <Location>
+                    {({ location }) => {
+                        console.log(location)
+                        if (location.pathname === '/' || '') {
+                            return (<React.Fragment><SidebarMobileNav navData={MainNavData.indexPage} mobileMenuOpen={this.state.mobileMenuOpen} toggleMobileMenu={this._toggleMobileMenu} noGerman={noGerman} /> <NavMain snowButton={true} navData={MainNavData.indexPage} /></React.Fragment>)
+                        }
+                        else if (location.pathname === '/about/' || '/about') { // this === should be "contains" string instead
+                            return (<React.Fragment><SidebarMobileNav navData={MainNavData.aboutPage} mobileMenuOpen={this.state.mobileMenuOpen} toggleMobileMenu={this._toggleMobileMenu} noGerman={noGerman} /> <NavMain snowButton={true} navData={MainNavData.aboutPage} /></React.Fragment>)
+                        }
 
-                <SidebarMobileNav mobileMenuOpen={this.state.mobileMenuOpen} toggleMobileMenu={this._toggleMobileMenu} noGerman={noGerman} />
+                    }}
+                </Location>
+                <SiteContext.Consumer>
+                    {context => (
+                        <React.Fragment>
+                            {context.state.snowing && <Snow />}
+                        </React.Fragment>
+
+                    )}
+
+                </SiteContext.Consumer>
                 <MainContainer mobileMenuOpen={this.state.mobileMenuOpen} toggleMobileMenu={this._toggleMobileMenu}>
                     <Header toggleMobileMenu={this._toggleMobileMenu} headerPosition={headerPosition} noGerman={noGerman}></Header>
                     {children}
                     <Footer></Footer>
-                    {/* {!noGerman && <SiteContext.Consumer>
+                </MainContainer>
+            </React.Fragment>
+        )
+    }
+}
+
+SiteContainer.contextType = SiteContext
+
+export default SiteContainer
+
+
+
+
+
+{/* {!noGerman && <SiteContext.Consumer>
                         {context => (
 
                             <Location>
@@ -418,17 +475,3 @@ class SiteContainer extends React.Component {
 
                         )}
                     </SiteContext.Consumer>} */}
-
-                </MainContainer>
-
-
-
-            </React.Fragment>
-        )
-    }
-}
-
-SiteContainer.contextType = SiteContext
-
-export default SiteContainer
-

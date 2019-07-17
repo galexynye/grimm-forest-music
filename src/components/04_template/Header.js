@@ -8,6 +8,9 @@ import { msTheme } from '../../styles/Theme'
 const HeaderContainer = styled.header`
     
     position: ${props => props.headerPosition || 'fixed'};
+    /* position: 'fixed'; */
+    top: 0px;
+    left: 0px;
     color: white;
     width: 100%;
     z-index: 10;
@@ -17,8 +20,7 @@ const HeaderContainer = styled.header`
     }
 `
 
-const HeaderStyle = styled.div`
-    position: relative;
+const HeaderStyle = styled.div`    
     display: flex;
     /* height: ${msTheme.heights.header}; */
     justify-content: flex-start;
@@ -67,7 +69,7 @@ export class Header extends React.Component {
                         <HomeLinkLogo noGerman={noGerman} />
                     </HomeLinkLogoWrapper> */}
 
-                    <NavMain margin="0px 20px" linkMargin="0px 0px 0px 30px" />
+                    {/* <NavMain margin="0px 20px" linkMargin="0px 0px 0px 30px" /> */}
                 </HeaderStyle>
             </HeaderContainer>
         )

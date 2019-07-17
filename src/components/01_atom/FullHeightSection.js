@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 
-const FullHeightSectionStyled = styled.section`        
-    min-height: 100vh;
+const FullHeightSectionStyled = styled.div`        
+    min-height: 100vh;    
     overflow-x: none;
     overflow-y: none;
     display: flex;    

@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { msTheme } from '../../styles/Theme'
 import { HomeLinkLogo } from '../01_atom/HomeLinkLogo'
-import { NavMain } from '../03_organism/NavMain'
+import { ButtonCTA } from '../01_atom/ButtonCTA'
+
+// import {Nav}
 // Include the 
 
 const MobileNavContainer = styled.div`
@@ -16,29 +18,30 @@ const MobileNavContainer = styled.div`
 `
 
 const MobileNavStyle = styled.nav`
-    /* display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center; */
-    
+    ul{
+        padding:0px 10px;
+        list-style-type: none;
+        li{
+            margin: auto;
+        }
+    }
     text-align: center;
     margin: 20px auto;
     /* padding: 20px;  */
 `
 
 export const SidebarMobileNav = (props) => {
+    //  Theses need to be using standard links as opposed to the AnchorLink component becasue it doesn't actually scroll to it on mobile
+    const navListMobile = props.navData.map(link => <li key={link.name}><a href={link.to}><ButtonCTA text={link.name} /></a></li>)
     return (
-        <MobileNavContainer mobileMenuOpen={props.mobileMenuOpen}>
+        <MobileNavContainer mobileMenuOpen={props.mobileMenuOpen} onClick={() => props.toggleMobileMenu()}>
             <MobileNavStyle>
                 <HomeLinkLogo height="40px"
                     noGerman={props.noGerman}
-                    toggleMobileMenu={props.toggleMobileMenu} //TODO: Doesn't Work need to go programmatically with link
                 />
-                <NavMain
-                    toggleMobileMenu={props.toggleMobileMenu}
-                    showSmall={true} flow="column"
-                    marginSmall="10px auto"
-                />
+                <ul>
+                    {navListMobile}
+                </ul>
             </MobileNavStyle>
         </MobileNavContainer>
     )

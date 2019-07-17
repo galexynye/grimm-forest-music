@@ -4,7 +4,8 @@ export const msTheme = {
         text: 'white', // '#373737'
         textlight: '#6d6d6d',
 
-        primary: '#36FF74', // Green primary: '#41b883', 
+        // primary: '#36FF74', // Green primary: '#41b883', 
+        primary: '#41b883', // Green primary: '#41b883', 
         primayhighlighter: '#C6A6F2',
         primarylightest: '#AF7AF0',
         primarylight: '#9753E9',
@@ -58,17 +59,20 @@ export const msTheme = {
     font: {
         // bodyFont: 'Ubuntu',
         // bodyFont: 'Open Sans',
-        // bodyFont: 'Dosis',
-        bodyFont: 'Khula',
+        bodyFont: 'Dosis',
+        // bodyFont: 'Khula',
+        // bodyFont: "'Press Start 2P', sans-serif",
+        // buttonFont: "'Press Start 2P', sans-serif",
+        buttonFont: 'Dosis',
+        // buttonFont: 'Khula',
         // bodyFont: 'Courier',
         // bodyFont: "'Karla', serif",
-
+        // 
         // headerFont: `'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', sans- serif,`
         // headerFont: "'Reenie Beanie', sans-serif"
         // headerFont: 'Open Sans'
-        // headerFont: 'Dosis'
-        headerFont: "'Press Start 2P', sans-serif"
-        // bodyFont: 'Khula',
+        headerFont: 'Dosis'
+        // headerFont: "'Press Start 2P', sans-serif"
     },
     fontSize: {
         h2: "34px"

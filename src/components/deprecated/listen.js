@@ -2,8 +2,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
-import { pageData } from '../sitedata/PageData/listenData'
-import ListenComponent from '../components/05_page/Pages/listen'
+import { pageData } from '../../sitedata/PageData/listenData'
+import ListenComponent from '../05_page/Pages/listen'
 
 
 // Services Page, contains the State and methods for the React Player 
