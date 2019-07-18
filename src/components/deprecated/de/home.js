@@ -27,7 +27,7 @@ export default class Home extends React.Component {
 
             <SiteContainer>
                 <Helmet
-                    meta={[{ name: 'description', content: 'Articles, Tutorials, Professional Music Services and a Blog on Music Production' }]}
+                    meta={[{ name: 'description', content: 'Original Music and Sound Design' }]}
                     title={`${siteTitle}`}
                 />
                 <IndexPage pageData={pageDataGerman} />
