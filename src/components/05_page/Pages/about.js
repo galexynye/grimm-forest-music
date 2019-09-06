@@ -5,9 +5,6 @@ import { msTheme } from '../../../styles/Theme'
 import { PageTitle } from '../../01_atom/PageTitle'
 import { GridContainer, ResponsivePhoto, WidthWrapper, FlexboxOrganism, GridItem } from '../../00_utilities/Utilities';
 import Millenia from '../../../assets/GrimmStudioPics/Millenia.jpg'
-import Saywell from '../../../assets/SaywellPics/SaywellLookingDown.jpg'
-import Footpedal from '../../../assets/GrimmStudioPics/FootPedal.jpg'
-import { ButtonCTA } from '../../01_atom/ButtonCTA';
 import { FullHeightSection } from '../../01_atom/FullHeightSection'
 import { ArticleContainer } from '../ArticleContainer'
 import Apollo from '../../../assets/GrimmStudioPics/ApolloCool.jpg'
@@ -59,10 +56,11 @@ class About extends React.Component {
                                 <FlexboxOrganism>
                                     <div>
                                         <h2 >Now</h2>
-                                        <p>Updated: July 15th, 2019</p>
-                                        <p>Big personal news, my wife recently received her visitor Visa after 4 years of being locked out of 'Merica.</p>
-                                        <p>I haven't been back to the States for nearly 2 years myself, so we can finally talk about visiting.</p>
-                                        <p>Currently I'm working on an album of Trailer Music and the latest <a href="https://saywell.bandcamp.com/" target="_blank">Saywell</a> song.</p>
+                                        <p>Updated: September 6th, 2019</p>
+                                        <p>Just got back a couple days ago from a trip to the USA. Feeling recharged and jetlagged.</p>
+                                        <p>This fall I will start advising and teaching music production at Macro Media University and the Jazz and Rock Schule in Freiburg. Teaching was something I started getting interested while studying at Berklee and I look forward to giving my perspective and learning from the students.</p>
+
+                                        <p>Currently I'm working on an album of Scary Music and the latest <a href="https://saywell.bandcamp.com/" target="_blank">Saywell</a> song.</p>
                                     </div>
                                     {/* <p>Grimm Forest Music and Sound is the studio of composer Alex Nye offering custom music and sound design for movies and games.</p> */}
                                 </FlexboxOrganism>
@@ -82,7 +80,7 @@ class About extends React.Component {
                                     <h2 >Bio</h2>
                                     <p>Do I like long walks on the beach? No, I love em. Love all types of walking in fact. I'm learning programming for fun and spend a lot of time with my family.</p>
                                     {/* <p>Used to do them all the time when I was living in Los Angeles working on these <a href="https://www.imdb.com/name/nm5637976/" target="_blank">shows and movies.</a></p> */}
-                                    <p className="mB0">Bios are usually pretty boring (mine included) and if you're interested in the quality of my work check out <Link to="/#music">my music</Link>. If you want to know where I come from and where I've been, there's a bulleted run down of my life here to get you up to speed.</p>
+                                    <p className="mB0">If you want to know where I come from and where I've been, there's a bulleted run down of my life here to get you up to speed.</p>
 
                                 </div>
                                 {/* <p>Grimm Forest Music and Sound is the studio of composer Alex Nye offering custom music and sound design for movies and games.</p> */}
@@ -103,10 +101,9 @@ class About extends React.Component {
                                     <li>1990: Born in Cleveland Ohio</li>
                                     <li>2008: All-American Runner 4x800 and 4xMile</li>
                                     <li>2011: Graduated Berklee College of Music</li>
-                                    <li>2012: LA <a href="https://www.imdb.com/name/nm5637976/" target="_blank">Doing Film Music</a></li>
+                                    <li>2012: LA <a href="https://www.imdb.com/name/nm5637976/" target="_blank">Doing Film Music</a> and some producing for <a href="https://output.com/" target="_blank">Output</a></li>
                                     <li>2016: Married a German</li>
                                     <li>2017: Moved to the Black Forest of Germany founded <a href="https://www.musicsequencing.com" target="_blank">MusicSequencing.com</a></li>
-
                                     <li>2017: Kid Born</li>
                                     <li>2018: Grimm Forest Music Founded</li>
                                     <li>2019: <a href="https://saywell.bandcamp.com/" target="_blank">Saywell Project</a>: Releasing 1 song a Month for the Year</li>

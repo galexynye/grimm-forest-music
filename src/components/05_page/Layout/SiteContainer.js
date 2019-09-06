@@ -380,7 +380,7 @@ class SiteContainer extends React.Component {
     }
     componentDidMount() {
         let german = this.context.state.german
-        console.log(german)
+        // console.log(german)
         this._handleWindowSizeChange()
         window.addEventListener('resize', this._handleWindowSizeChange)
     }
@@ -425,7 +425,7 @@ class SiteContainer extends React.Component {
                 {/* Returns the Menu depending on the Page */}
                 <Location>
                     {({ location }) => {
-                        console.log(location)
+                        // console.log(location)
                         if (location.pathname === '/' || '') {
                             return (<React.Fragment><SidebarMobileNav navData={MainNavData.indexPage} mobileMenuOpen={this.state.mobileMenuOpen} toggleMobileMenu={this._toggleMobileMenu} noGerman={noGerman} /> <NavMain snowButton={true} navData={MainNavData.indexPage} /></React.Fragment>)
                         }

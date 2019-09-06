@@ -80,14 +80,14 @@ export default class contact extends PureComponent {
     }
 
     _recaptchaLoaded = () => {
-        console.log("loaded")
+        // console.log("loaded")
         this.setState({
             recaptchaLoaded: true
         })
     }
 
     _verifyHuman = (response) => {
-        console.log(response)
+        // console.log(response)
         // let captchaCode = response + ""
         this.setState({
             recaptcha: response

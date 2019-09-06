@@ -41,8 +41,8 @@ class BlogPostTemplate extends React.Component {
         if (window.scrollY >= height - 1200) {
             this.setState({ isTop: true })
         }
-        console.log(height)
-        console.log(window.scrollY)
+        // console.log(height)
+        // console.log(window.scrollY)
 
     }
 

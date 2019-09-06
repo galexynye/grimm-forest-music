@@ -4,7 +4,7 @@ import { GridContainer, GridItem, ResponsivePhoto, FlexboxOrganism, WidthWrapper
 import StudPic from '../../../assets/GrimmStudioPics/BallSide.jpg'
 import { msTheme } from '../../../styles/Theme';
 import { ButtonCTA } from '../../01_atom/ButtonCTA';
-import { OverlayContainer } from '../../01_atom/OverlayContainer';
+
 import { IndustryLogos } from '../../02_molecule/IndustryLogos'
 
 
