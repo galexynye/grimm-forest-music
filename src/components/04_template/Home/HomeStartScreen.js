@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 import { FullHeightSection } from '../../01_atom/FullHeightSection';
 import { OverlayContainer } from '../../01_atom/OverlayContainer'
@@ -10,6 +10,8 @@ import PlayCircle from '../../../assets/GrimmGraphics/PlayCircle_315px.png'
 import { FlexboxOrganism, GridContainer, ResponsiveIframe, WidthWrapper, GridItem, ResponsivePhoto } from '../../00_utilities/Utilities';
 import { msTheme } from '../../../styles/Theme'
 import { SiteContext } from '../../05_page/Layout/SiteContainer';
+
+// There's three goddamn components in here
 
 const HomeWordsPics = styled.img`
     ${msTheme.mediaquery().medium}{
@@ -47,6 +49,9 @@ const BigPlayTrailerButtonStyle = styled.button`
     }
 `
 
+
+// Trailer button that starts play by taking the function in via props
+
 export class BigPlayTrailerButton extends React.Component {
     constructor(props) {
         super(props)
@@ -75,14 +80,39 @@ export class BigPlayTrailerButton extends React.Component {
 
 
 
+
+// Hook that alerts clicks outside of the passed ref
+
+function useOutsideAlerter(ref, _outSideClickHandler) {
+    function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+            _outSideClickHandler() // Does the function if clicked outside of the ref
+        }
+    }
+
+    useEffect(() => {
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            // Unbind the event listener on clean up
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    });
+}
+
+// Functional component that shows the trailer 
 const HomeScreenCenterPics = () => {
+    const context = useContext(SiteContext) // Get's Site global context
+    const wrapperRef = useRef(null);
+    useOutsideAlerter(wrapperRef, context._toggleShowHomeTrailer); // Passes the function to change state adn rap to the hook (defined above)
     return (
+        // top Image Grim Forest
         <React.Fragment>
             <FlexboxOrganism padding="0px 20px 20px 20px">
-                {/* <img src={MusicandSound} style={{ width: "315px", maxWidth: "100%", margin: "auto" }} /> */}
                 <HomeWordsPics src={MusicandSound} />
             </FlexboxOrganism>
 
+            {/* Tree button and Playback overlay */}
             <SiteContext.Consumer>
                 {
                     context => {
@@ -90,18 +120,18 @@ const HomeScreenCenterPics = () => {
                             <React.Fragment>
                                 <FlexboxOrganism padding="0px 20px 20px 20px">
                                     <BigPlayTrailerButton onClick={context._toggleShowHomeTrailer} />
-
                                 </FlexboxOrganism>
                                 <OverlayContainer display={context.state.showHomeTrailer} _toggle={context._toggleShowHomeTrailer}>
                                     <FlexboxOrganism height="100vh">
                                         <GridContainer gTC="1fr" gTCL="1fr" gTCM="1fr">
                                             <GridItem alignSelf="center" height="100vh">
-                                                <ResponsiveIframe>
-                                                    {/* <iframe src="https://player.vimeo.com/video/347713752" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> */}
-                                                    {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/aoQVUaFX02k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+
+
+                                                <ResponsiveIframe ref={wrapperRef}>
                                                     <iframe src="https://player.vimeo.com/video/348605943" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                                                     <p style={{ fontSize: "24px", zIndex: '-1', position: 'absolute', top: '50%', left: "50%", transform: "translate(-50%, -50%)" }}>Loading...</p>
                                                 </ResponsiveIframe>
+
                                             </GridItem>
 
                                         </GridContainer>
@@ -129,10 +159,7 @@ const HomeStartScreen = () => {
             <FullHeightSection>
                 <GridContainer gTC="1fr" gTCL="1fr" gTCM="1fr">
                     <FlexboxOrganism margin="-70px 0px 0px 0px" marginSmall="30px 0px 0px 0px" paddingSmall="0px">
-                        {/* <FlexboxOrganism> */}
-                        {/* <GridItem> */}
                         <img style={{ maxWidth: "90vw", margin: 'auto' }} src={GrimmForestWords} />
-                        {/* </GridItem> */}
                     </FlexboxOrganism>
 
                     {/* Long Container */}

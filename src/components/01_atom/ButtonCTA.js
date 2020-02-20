@@ -45,7 +45,7 @@ export const ButtonCTAStyle = styled.button`
     cursor: pointer;        
     /* background-color: ${msTheme.colors.primary};   */
     /* background-color: ${msTheme.colors.bgColor};   */
-    box-shadow: 0px 0px 7px 0px white;
+    box-shadow: 0px 0px 3px 0px white;
     /* background-color: white;   */
     /* background-color: rgb(255,255,255,.01);   */
   }   

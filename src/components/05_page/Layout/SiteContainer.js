@@ -346,25 +346,7 @@ export class SiteProvider extends React.Component {
 
 }
 
-const GermanToggButton = styled.button`
-    position: absolute;
-    z-index: 100;
-    top: 38px;
-    right: 38px;
-    background-color: #ffffff00;
-    color: ${msTheme.colors.text};
-    border: none;
-    font-size: 19px;
-	font-weight: 300;
-    font-family: ${msTheme.font.headerFont};
-    &:hover {
-        cursor: pointer;
-    }
-    ${msTheme.mediaquery().medium}{
-        top: 20px;
-        right: 5px;
-    }
-`
+
 
 
 
@@ -435,6 +417,7 @@ class SiteContainer extends React.Component {
 
                     }}
                 </Location>
+                {/* <SiteProvider> */}
                 <SiteContext.Consumer>
                     {context => (
                         <React.Fragment>
@@ -449,6 +432,7 @@ class SiteContainer extends React.Component {
                     {children}
                     <Footer></Footer>
                 </MainContainer>
+                {/* </SiteProvider> */}
             </React.Fragment>
         )
     }
@@ -475,3 +459,24 @@ export default SiteContainer
 
                         )}
                     </SiteContext.Consumer>} */}
+
+
+// const GermanToggButton = styled.button`
+//     position: absolute;
+//     z-index: 100;
+//     top: 38px;
+//     right: 38px;
+//     background-color: #ffffff00;
+//     color: ${msTheme.colors.text};
+//     border: none;
+//     font-size: 19px;
+// 	font-weight: 300;
+//     font-family: ${msTheme.font.headerFont};
+//     &:hover {
+//         cursor: pointer;
+//     }
+//     ${msTheme.mediaquery().medium}{
+//         top: 20px;
+//         right: 5px;
+//     }
+// `

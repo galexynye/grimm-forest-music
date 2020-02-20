@@ -1,3 +1,3 @@
 # Grimm Forest Music
 
-This is my commercial studio website. 
+This is my studio website. 

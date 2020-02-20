@@ -25,6 +25,7 @@ export class OverlayContainer extends Component {
         // console.log(this.props.display);
 
     }
+    //TODO: MAKE THIS ESCAPE WORK
     escFunction = (event) => {
         if (event.key === "Escape") {
             this.props._toggle

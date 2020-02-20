@@ -29,7 +29,7 @@ export const Copyright = styled.div``
 export const Footer = props => {
     return (
         <FooterStyle>
-            <FlexboxOrganism><p >© 2019 Grimm Forest Music</p></FlexboxOrganism>
+            <FlexboxOrganism><p >©2020 Grimm Forest Music</p></FlexboxOrganism>
 
 
         </FooterStyle >

@@ -9,7 +9,7 @@ export default class NoFind extends PureComponent {
                 <h1>We're LOST!</h1>
                 <p>Hello! You've gone somewhere that no longer exists or never did!</p>
                 <p>Really sorry about that, you can head back to <a href="https://www.grimmforestmusic.com">Grimm Forest Music & Sound with this link</a>.</p>
-                <p>If there's been a problem or you have a suggestion please let me know by visiting the <a href="https://www.grimmforestmusic.com/contact">contact page.</a></p>
+                {/* <p>If there's been a problem or you have a suggestion please let me know by visiting the <a href="https://www.grimmforestmusic.com/contact">contact page.</a></p> */}
             </ArticleContainer>
         )
     }

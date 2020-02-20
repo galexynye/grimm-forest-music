@@ -2,9 +2,9 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 
-import SiteContainer from '../components/05_page/Layout/SiteContainer'
-import AboutComponent from '../components/05_page/Pages/about'
-import { pageData } from '../sitedata/PageData/aboutData'
+import SiteContainer from '../05_page/Layout/SiteContainer'
+import AboutComponent from '../05_page/Pages/about'
+import { pageData } from '../../sitedata/PageData/aboutData'
 
 
 class About extends React.Component {

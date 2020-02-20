@@ -21,10 +21,10 @@ export class AboutSection extends Component {
                                     <p>Grimm Forest Music and Sound is the studio of composer Alex Nye offering custom music and sound design for movies and games. </p>
                                     <p> The name Grimm Forest comes from the studio's location in Germany's Black Forest, an inspiration for many of the Grimm brothers' fairytales. Compositions by Alex have been included in projects from these major studios in movies like Sam Raimi produced Poltergeist and the Amazon Series "Hand Of God".</p>
                                     <IndustryLogos />
-                                    <p>Click below for bio and latest info</p>
+                                    {/* <p>Click below for bio and latest info</p>
                                     <WidthWrapper width="250px" margin="0px">
                                         <ButtonCTA to="/about" text="More About"></ButtonCTA>
-                                    </WidthWrapper>
+                                    </WidthWrapper> */}
                                     {/* <p>Grimm Forest Music and Sound is the studio of composer Alex Nye offering custom music and sound design for movies and games.</p> */}
                                 </div>
                             </FlexboxOrganism>

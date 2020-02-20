@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import SiteContainer from '../components/05_page/Layout/SiteContainer'
-import ContactPage from '../components/05_page/Pages/contact'
-import { pageData } from '../sitedata/PageData/contactData'
+import SiteContainer from '../05_page/Layout/SiteContainer'
+import ContactPage from '../05_page/Pages/contact'
+import { pageData } from '../../sitedata/PageData/contactData'
 
 
 
